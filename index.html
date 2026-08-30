@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071a2d">
+  <meta name="description" content="Free Telegram alerts when the Local 400 open-jobs bulletin is published.">
+  <meta property="og:title" content="Local 400 Job Alerts">
+  <meta property="og:description" content="Join once and get the open-jobs bulletin in Telegram when it is published.">
+  <meta property="og:type" content="website">
+  <title>Local 400 Job Alerts</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --navy: #071a2d;
+      --navy-soft: #0d2943;
+      --card: rgba(13, 41, 67, 0.82);
+      --line: rgba(255, 255, 255, 0.13);
+      --ink: #f8fbff;
+      --muted: #b8c7d8;
+      --gold: #ffcc4d;
+      --gold-dark: #17202a;
+      --telegram: #2aabee;
+      --max: 44rem;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background:
+        radial-gradient(circle at 50% -10%, rgba(42, 171, 238, 0.25), transparent 35rem),
+        linear-gradient(155deg, #061523 0%, var(--navy) 55%, #0a2239 100%);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    a { color: inherit; }
+
+    .shell {
+      width: min(100% - 2rem, var(--max));
+      margin-inline: auto;
+      padding: 3rem 0 2rem;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0 0 1.25rem;
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 1rem rgba(255, 204, 77, 0.7);
+      content: "";
+    }
+
+    h1 {
+      max-width: 11ch;
+      margin: 0;
+      font-size: clamp(2.5rem, 11vw, 5.25rem);
+      line-height: 0.96;
+      letter-spacing: -0.055em;
+    }
+
+    .intro {
+      max-width: 37rem;
+      margin: 1.5rem 0 1.75rem;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 4vw, 1.25rem);
+    }
+
+    .primary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3.75rem;
+      width: 100%;
+      border-radius: 0.9rem;
+      background: var(--telegram);
+      box-shadow: 0 0.85rem 2rem rgba(0, 0, 0, 0.25);
+      color: #04121e;
+      font-size: 1.05rem;
+      font-weight: 850;
+      text-decoration: none;
+      transition: transform 150ms ease, filter 150ms ease;
+    }
+
+    .primary:hover { filter: brightness(1.08); transform: translateY(-2px); }
+    .primary:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+
+    .handle {
+      margin: 0.7rem 0 2.25rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    .panel {
+      margin-top: 1rem;
+      padding: clamp(1.25rem, 5vw, 2rem);
+      border: 1px solid var(--line);
+      border-radius: 1.2rem;
+      background: var(--card);
+      box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.18);
+      backdrop-filter: blur(12px);
+    }
+
+    h2 {
+      margin: 0 0 1.1rem;
+      font-size: 1.3rem;
+      letter-spacing: -0.02em;
+    }
+
+    ol {
+      display: grid;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+      counter-reset: steps;
+      list-style: none;
+    }
+
+    li {
+      display: grid;
+      grid-template-columns: 2rem 1fr;
+      gap: 0.8rem;
+      align-items: start;
+      counter-increment: steps;
+    }
+
+    li::before {
+      display: grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--gold-dark);
+      content: counter(steps);
+      font-weight: 900;
+    }
+
+    li strong { display: block; }
+    li span { color: var(--muted); }
+
+    .store-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem 0.8rem;
+      margin-top: 0.35rem;
+    }
+
+    .store-links a,
+    .command {
+      color: var(--ink);
+      font-weight: 750;
+      text-decoration-color: var(--telegram);
+      text-decoration-thickness: 2px;
+      text-underline-offset: 0.2em;
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .control {
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 0.85rem;
+      background: rgba(0, 0, 0, 0.12);
+    }
+
+    .control code {
+      color: var(--gold);
+      font-size: 1rem;
+      font-weight: 850;
+    }
+
+    .control p,
+    .fine-print p { margin: 0.35rem 0 0; color: var(--muted); }
+
+    .fine-print { font-size: 0.9rem; }
+    .fine-print p + p { margin-top: 0.85rem; }
+
+    footer {
+      padding: 1.5rem 0 0;
+      color: #91a6bb;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    @media (max-width: 31rem) {
+      .shell { padding-top: 2rem; }
+      .controls { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .primary { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <p class="eyebrow">Free Telegram alerts</p>
+    <h1>See new job calls when they post.</h1>
+    <p class="intro">
+      Join once. When the Local 400 open-jobs bulletin is published,
+      IbewjobsBot sends the details straight to your Telegram chat.
+    </p>
+
+    <a class="primary" href="https://t.me/IbewjobsBot?start=subscribe" rel="noopener noreferrer">
+      Open IbewjobsBot in Telegram
+    </a>
+    <p class="handle">Public bot: @IbewjobsBot</p>
+
+    <section class="panel" aria-labelledby="join-heading">
+      <h2 id="join-heading">How to join</h2>
+      <ol>
+        <li>
+          <div>
+            <strong>Install Telegram if you need it.</strong>
+            <span class="store-links">
+              <a href="https://apps.apple.com/app/telegram-messenger/id686449807" rel="noopener noreferrer">iPhone / iPad</a>
+              <a href="https://play.google.com/store/apps/details?id=org.telegram.messenger" rel="noopener noreferrer">Android</a>
+            </span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Tap “Open IbewjobsBot” above.</strong>
+            <span>Telegram will open the shared public bot. No personal invitation is needed.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Press Start in Telegram.</strong>
+            <span>The bot confirms when notifications are turned on.</span>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="panel" aria-labelledby="control-heading">
+      <h2 id="control-heading">You stay in control</h2>
+      <div class="controls">
+        <div class="control">
+          <code>/status</code>
+          <p>Check whether your alerts are on.</p>
+        </div>
+        <div class="control">
+          <code>/stop</code>
+          <p>Turn alerts off immediately.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel fine-print" aria-labelledby="privacy-heading">
+      <h2 id="privacy-heading">Simple and private</h2>
+      <p>
+        You never share your Working Systems login. The service keeps only the
+        Telegram destination, subscription state, and delivery records needed
+        to send and troubleshoot alerts.
+      </p>
+      <p>
+        This service sends convenience notifications only. It does not submit
+        bids, change your union account, guarantee delivery, or replace the
+        official job board and union office as the authoritative source.
+      </p>
+    </section>
+
+    <footer>No ads. No tracking scripts. Unsubscribe anytime with /stop.</footer>
+  </main>
+</body>
+</html>
