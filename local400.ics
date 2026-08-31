@@ -46,6 +46,18 @@ LOCATION:IBEW Local 400 Union Hall\, 3301 Highway 138 East\, Wall\, NJ 0771
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
+UID:event-devils-game@local400hub.invalid
+DTSTAMP:20260831T000000Z
+SEQUENCE:0
+DTSTART:20260312T210000Z
+DTEND:20260312T230000Z
+SUMMARY:NJ Devils Hockey Game
+LOCATION:IBEW Local 400 Union Hall\, 3301 Highway 138 East\, Wall\, NJ 0771
+ 9
+DESCRIPTION:The bus leaves the union hall at 5:00 pm.
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
 UID:meeting-general-2026-03@local400hub.invalid
 DTSTAMP:20260831T000000Z
 SEQUENCE:0
@@ -66,6 +78,28 @@ SUMMARY:General Membership Meeting
 LOCATION:IBEW Local 400 Union Hall\, 3301 Highway 138 East\, Wall\, NJ 0771
  9
 TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:event-fishing-trip@local400hub.invalid
+DTSTAMP:20260831T000000Z
+SEQUENCE:0
+DTSTART:20260517T100000Z
+DTEND:20260517T180000Z
+SUMMARY:2026 Local 400 Fishing Trip
+LOCATION:Mimi VI\, 405 Channel Drive\, Point Pleasant Beach\, NJ
+DESCRIPTION:Members only.
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:event-benevolent-fund-scholarship@local400hub.invalid
+DTSTAMP:20260831T000000Z
+SEQUENCE:0
+DTSTART;VALUE=DATE:20260522
+DTEND;VALUE=DATE:20260523
+SUMMARY:Benevolent Fund Scholarship Deadline
+DESCRIPTION:Completed applications go to the union hall.\nRegister by Frida
+ y\, May 22.
+TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:holiday-2026-05-25@local400hub.invalid
@@ -99,6 +133,17 @@ LOCATION:IBEW Local 400 Union Hall\, 3301 Highway 138 East\, Wall\, NJ 0771
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
+UID:event-middletown-250-parade@local400hub.invalid
+DTSTAMP:20260831T000000Z
+SEQUENCE:0
+DTSTART:20260628T163000Z
+DTEND:20260628T183000Z
+SUMMARY:Middletown 250th Celebration Parade
+LOCATION:Middletown Train Station
+DESCRIPTION:Meet at the train station.
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
 UID:holiday-2026-07-04@local400hub.invalid
 DTSTAMP:20260831T000000Z
 SEQUENCE:1
@@ -110,6 +155,17 @@ DESCRIPTION:Independence Day falls on Saturday\, July 4\; observed this day
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:event-family-picnic@local400hub.invalid
+DTSTAMP:20260831T000000Z
+SEQUENCE:0
+DTSTART:20260718T160000Z
+DTEND:20260718T180000Z
+SUMMARY:Family Picnic
+LOCATION:Oak Tree Lodge
+DESCRIPTION:Free for members and their immediate family.
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
 UID:meeting-general-2026-07@local400hub.invalid
 DTSTAMP:20260831T000000Z
 SEQUENCE:0
@@ -119,6 +175,24 @@ SUMMARY:General Membership Meeting
 LOCATION:IBEW Local 400 Union Hall\, 3301 Highway 138 East\, Wall\, NJ 0771
  9
 TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:event-blueclaws-military-appreciation@local400hub.invalid
+DTSTAMP:20260831T000000Z
+SEQUENCE:0
+DTSTART;VALUE=DATE:20260723
+DTEND;VALUE=DATE:20260724
+SUMMARY:Military Appreciation Night\, Jersey Shore BlueClaws
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:event-blueclaws-labor-appreciation@local400hub.invalid
+DTSTAMP:20260831T000000Z
+SEQUENCE:0
+DTSTART;VALUE=DATE:20260724
+DTEND;VALUE=DATE:20260725
+SUMMARY:Building Trades Labor Appreciation Night\, Jersey Shore BlueClaws
+TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:meeting-general-2026-08@local400hub.invalid
