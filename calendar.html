@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="generated" content="2026-08-31">
+<meta name="generated" content="2026-09-01">
 <title>IBEW Local 400 &middot; Meetings, Holidays &amp; Events</title>
 <meta name="description" content="Union meeting dates, observed holidays and
 hall events for IBEW Local 400. Subscribe once and your phone stays up to
@@ -28,8 +28,13 @@ font-weight:600;font-size:1.05rem}
 .cta.alt{background:var(--card);color:var(--ink);border:1px solid var(--line);
 margin-top:8px}
 .link{background:var(--card);border:1px solid var(--line);border-radius:8px;
-padding:11px 13px;margin:0;font-size:.86rem;word-break:break-all;
+padding:11px 13px;margin:0;width:100%;color:var(--ink);font:inherit;
+font-size:1rem;line-height:1.35;overflow:auto;resize:none;word-break:break-all;
 -webkit-user-select:all;user-select:all}
+.copy{font-family:inherit;width:100%;cursor:pointer}
+.copy-status{min-height:1.25em}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .hint{color:var(--muted);font-size:.83rem;margin:10px 2px 0}
 h2{font-size:.78rem;text-transform:uppercase;letter-spacing:.09em;
 color:var(--muted);margin:34px 0 10px;font-weight:700}
@@ -47,29 +52,34 @@ letter-spacing:.06em;color:var(--muted)}
 .meta{color:var(--muted);font-size:.85rem;margin-top:2px}
 .moved{color:var(--warn);background:var(--warn-bg);border-radius:5px;
 padding:1px 6px;font-size:.76rem;display:inline-block;margin-top:5px}
-.hol{opacity:.82}
 footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);
 color:var(--muted);font-size:.8rem}
 footer p{margin:0 0 7px}
 </style>
 </head>
 <body>
-<div class="wrap">
+<main class="wrap">
 <h1>Meetings, Holidays &amp; Events</h1>
 <p class="sub">IBEW Local 400</p>
 
 <h2>Add to my calendar</h2>
 <p class="hint">Set it once. Your calendar then updates itself &mdash; how
 quickly is your phone&rsquo;s decision, not ours.</p>
-<p class="link">https://jmcnutty24.github.io/ibew-jobs-alerts/local400.ics</p>
+<label class="sr-only" for="calendar-url">Calendar subscription URL</label>
+<textarea class="link" id="calendar-url" rows="2" readonly
+spellcheck="false">https://jmcnutty24.github.io/ibew-jobs-alerts/local400.ics</textarea>
+<button class="cta alt copy" id="copy-calendar-url" type="button">
+Copy calendar URL</button>
+<p class="hint copy-status" id="copy-status" role="status"
+aria-live="polite"></p>
 <h3>iPhone or iPad</h3>
 <a class="cta" href="webcal://jmcnutty24.github.io/ibew-jobs-alerts/local400.ics">Add it now</a>
 <p class="hint">Using Google Calendar on your iPhone? Follow the Android
 steps instead.</p>
 <h3>Android</h3>
-<p class="hint">Google&rsquo;s app can&rsquo;t subscribe. Copy the link above
-and paste it into the page below. In Chrome, switch on &ldquo;Desktop
-site&rdquo; first.</p>
+<p class="hint">Google&rsquo;s app can&rsquo;t subscribe. Tap &ldquo;Copy calendar
+URL&rdquo; above, open the page below, and paste. In Chrome, switch on
+&ldquo;Desktop site&rdquo; first.</p>
 <a class="cta alt" href="https://calendar.google.com/calendar/u/0/r/settings/addbyurl?url=https%3A%2F%2Fjmcnutty24.github.io%2Fibew-jobs-alerts%2Flocal400.ics">Open Google&rsquo;s add-by-URL page</a>
 <h3>Outlook and everything else</h3>
 <p class="hint">Paste the link into &ldquo;Subscribe by URL&rdquo;.</p>
@@ -94,6 +104,48 @@ Local 400 calendar.</p>
 <p>Saving the <a href="https://jmcnutty24.github.io/ibew-jobs-alerts/local400.ics">file</a> instead?
 It won&rsquo;t update when a meeting moves.</p>
 </footer>
-</div>
+</main>
+<script>
+(() => {
+  "use strict";
+  const field = document.getElementById("calendar-url");
+  const button = document.getElementById("copy-calendar-url");
+  const status = document.getElementById("copy-status");
+  const selectUrl = () => {
+    field.focus();
+    field.select();
+    field.setSelectionRange(0, field.value.length);
+  };
+  field.addEventListener("click", selectUrl);
+  button.addEventListener("click", async () => {
+    let copied = false;
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(field.value);
+        copied = true;
+      } catch (_) {
+        copied = false;
+      }
+    }
+    if (!copied) {
+      selectUrl();
+      try {
+        copied = document.execCommand("copy");
+      } catch (_) {
+        copied = false;
+      }
+    }
+    if (copied) {
+      button.textContent = "Copied";
+      status.textContent =
+        "Calendar URL copied. Open Google’s page, then paste.";
+    } else {
+      selectUrl();
+      status.textContent =
+        "The URL is selected. Choose Copy, then open Google’s page.";
+    }
+  });
+})();
+</script>
 </body>
 </html>
