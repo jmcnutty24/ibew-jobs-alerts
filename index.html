@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#071a2d">
-  <meta name="description" content="Keep forgetting to check the Local 400 job postings? IbewjobsBot automatically sends the open-jobs bulletin to Telegram.">
+  <meta name="description" content="Job calls, meeting dates and union holidays for IBEW Local 400. Get the open-jobs bulletin on Discord or Telegram, and subscribe to the union calendar.">
   <meta property="og:title" content="Local 400 Job Alerts">
   <meta property="og:description" content="The bot remembers to check, so you don't have to. Get the Local 400 open-jobs bulletin automatically in Telegram.">
   <meta property="og:type" content="website">
@@ -21,6 +21,7 @@
       --gold: #ffcc4d;
       --gold-dark: #17202a;
       --telegram: #2aabee;
+      --discord: #5865f2;
       --max: 44rem;
     }
 
@@ -96,6 +97,11 @@
       text-decoration: none;
       transition: transform 150ms ease, filter 150ms ease;
     }
+
+    .primary.calendar { background: var(--gold); color: var(--gold-dark); }
+    .primary.discord { background: var(--discord); color: #fff; }
+    .primary.telegram { background: var(--telegram); color: #04121e; }
+    .primary + .primary { margin-top: 0.6rem; }
 
     .primary:hover { filter: brightness(1.08); transform: translateY(-2px); }
     .primary:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
@@ -216,22 +222,47 @@
 </head>
 <body>
   <main class="shell">
-    <p class="eyebrow">Free Telegram alerts</p>
+    <p class="eyebrow">Free for Local 400 members</p>
     <h1>See new job calls when they post.</h1>
     <p class="intro">
-      Keep forgetting to log in and check the day&rsquo;s job postings? Join once.
-      When the Local 400 open-jobs bulletin is published, IbewjobsBot
-      automatically sends it to your Telegram chat&mdash;so you don&rsquo;t have to
-      remember.
+      Keep forgetting to log in and check the day&rsquo;s job postings? Join once
+      and the Local 400 open-jobs bulletin comes to you&mdash;on Discord or
+      Telegram, whichever you already use. Same bulletin, same time.
     </p>
 
-    <a class="primary" href="https://t.me/IbewjobsBot?start=subscribe" rel="noopener noreferrer">
-      Open IbewjobsBot in Telegram
+    <a class="primary discord" href="https://discord.gg/qDhUqGzYpG" rel="noopener noreferrer">
+      Join Local 400 Connect on Discord
     </a>
-    <p class="handle">Public bot: @IbewjobsBot</p>
+    <a class="primary telegram" href="https://t.me/IbewjobsBot?start=subscribe" rel="noopener noreferrer">
+      Or open IbewjobsBot in Telegram
+    </a>
+    <p class="handle">Discord: Local 400 Connect &middot; Telegram bot: @IbewjobsBot</p>
+
+    <section class="panel" aria-labelledby="calendar-heading">
+      <h2 id="calendar-heading">Union calendar</h2>
+      <p style="margin:0 0 1.1rem;color:var(--muted)">
+        Every membership meeting, union holiday and hall event&mdash;picnics,
+        the fishing trip, ball games&mdash;in one calendar you subscribe to
+        once. When the hall moves a meeting, the date changes on your phone by
+        itself. September&rsquo;s meeting has already moved to the 30th.
+      </p>
+      <a class="primary calendar" href="https://jmcnutty24.github.io/ibew-jobs-alerts/calendar.html">
+        Add the union calendar
+      </a>
+    </section>
+
+    <section class="panel" aria-labelledby="discord-heading">
+      <h2 id="discord-heading">What is on Discord</h2>
+      <p style="margin:0;color:var(--muted)">
+        Job calls post to <strong>#job-alerts</strong> and meeting and holiday
+        notices to <strong>#union-calendar</strong>, as they happen. It is a
+        place members can talk to each other too, which a one-way bot is not.
+        Free, works on your phone or in a browser, no app required.
+      </p>
+    </section>
 
     <section class="panel" aria-labelledby="join-heading">
-      <h2 id="join-heading">How to join</h2>
+      <h2 id="join-heading">How to join on Telegram</h2>
       <ol>
         <li>
           <div>
@@ -285,7 +316,8 @@
       </p>
     </section>
 
-    <footer>No ads. No tracking scripts. Unsubscribe anytime with /stop.</footer>
+    <footer>No ads. No tracking scripts. Unsubscribe anytime with /stop.<br>
+      Unofficial, member-run. Not the official Local 400 job board or union office.</footer>
   </main>
 </body>
 </html>
