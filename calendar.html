@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="generated" content="2026-09-01">
+<meta name="generated" content="2026-09-02">
 <title>IBEW Local 400 &middot; Meetings, Holidays &amp; Events</title>
 <meta name="description" content="Union meeting dates, observed holidays and
 hall events for IBEW Local 400. Subscribe once and your phone stays up to
@@ -15,6 +15,7 @@ date.">
 --line:#2b3038;--bg:#14161a;--accent:#c62828;--card:#1c1f25;
 --warn:#f0c060;--warn-bg:#2a2313}}
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 body{margin:0;background:var(--bg);color:var(--ink);
 font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
 -webkit-text-size-adjust:100%}
@@ -85,15 +86,16 @@ URL&rdquo; above, open the page below, and paste. In Chrome, switch on
 <p class="hint">Paste the link into &ldquo;Subscribe by URL&rdquo;.</p>
 
 <h2>Coming up</h2>
-<ul>
-<li class="hol"><span class="when"><span class="dow">Mon</span><span class="day">7</span><span class="mon">Sep</span></span><span class="what"><span class="title">Labor Day (Union Holiday)</span><div class="meta">Hall closed</div></span></li>
-<li class=""><span class="when"><span class="dow">Wed</span><span class="day">30</span><span class="mon">Sep</span></span><span class="what"><span class="title">General Membership Meeting</span><div class="meta">6 pm &middot; IBEW Local 400 Union Hall</div><span class="moved">Rescheduled from Wednesday, September 23.</span></span></li>
-<li class=""><span class="when"><span class="dow">Wed</span><span class="day">28</span><span class="mon">Oct</span></span><span class="what"><span class="title">General Membership Meeting</span><div class="meta">6 pm &middot; IBEW Local 400 Union Hall</div></span></li>
-<li class="hol"><span class="when"><span class="dow">Wed</span><span class="day">11</span><span class="mon">Nov</span></span><span class="what"><span class="title">Veterans Day (Union Holiday)</span><div class="meta">Hall closed</div></span></li>
-<li class=""><span class="when"><span class="dow">Thu</span><span class="day">19</span><span class="mon">Nov</span></span><span class="what"><span class="title">General Membership Meeting</span><div class="meta">6 pm &middot; IBEW Local 400 Union Hall</div><span class="moved">Rescheduled from Wednesday, November 25.</span></span></li>
-<li class="hol"><span class="when"><span class="dow">Thu</span><span class="day">26</span><span class="mon">Nov</span></span><span class="what"><span class="title">Thanksgiving (Union Holiday)</span><div class="meta">Hall closed</div></span></li>
-<li class=""><span class="when"><span class="dow">Thu</span><span class="day">17</span><span class="mon">Dec</span></span><span class="what"><span class="title">General Membership Meeting</span><div class="meta">6 pm &middot; IBEW Local 400 Union Hall</div><span class="moved">Rescheduled from Wednesday, December 23.</span></span></li>
-<li class="hol"><span class="when"><span class="dow">Fri</span><span class="day">25</span><span class="mon">Dec</span></span><span class="what"><span class="title">Christmas Day (Union Holiday)</span><div class="meta">Hall closed</div></span></li>
+<ul id="calendar-upcoming" data-limit="12">
+<li class="hol"><span class="when" data-calendar-day="2026-09-07"><span class="dow">Mon</span><span class="day">7</span><span class="mon">Sep</span></span><span class="what"><span class="title">Labor Day (Union Holiday)</span><div class="meta">Hall closed</div></span></li>
+<li class=""><span class="when" data-calendar-day="2026-09-30"><span class="dow">Wed</span><span class="day">30</span><span class="mon">Sep</span></span><span class="what"><span class="title">General Membership Meeting</span><div class="meta">6 pm &middot; IBEW Local 400 Union Hall</div><span class="moved">Rescheduled from Wednesday, September 23.</span></span></li>
+<li class=""><span class="when" data-calendar-day="2026-10-28"><span class="dow">Wed</span><span class="day">28</span><span class="mon">Oct</span></span><span class="what"><span class="title">General Membership Meeting</span><div class="meta">6 pm &middot; IBEW Local 400 Union Hall</div></span></li>
+<li class="hol"><span class="when" data-calendar-day="2026-11-11"><span class="dow">Wed</span><span class="day">11</span><span class="mon">Nov</span></span><span class="what"><span class="title">Veterans Day (Union Holiday)</span><div class="meta">Hall closed</div></span></li>
+<li class=""><span class="when" data-calendar-day="2026-11-19"><span class="dow">Thu</span><span class="day">19</span><span class="mon">Nov</span></span><span class="what"><span class="title">General Membership Meeting</span><div class="meta">6 pm &middot; IBEW Local 400 Union Hall</div><span class="moved">Rescheduled from Wednesday, November 25.</span></span></li>
+<li class="hol"><span class="when" data-calendar-day="2026-11-26"><span class="dow">Thu</span><span class="day">26</span><span class="mon">Nov</span></span><span class="what"><span class="title">Thanksgiving (Union Holiday)</span><div class="meta">Hall closed</div></span></li>
+<li class=""><span class="when" data-calendar-day="2026-12-17"><span class="dow">Thu</span><span class="day">17</span><span class="mon">Dec</span></span><span class="what"><span class="title">General Membership Meeting</span><div class="meta">6 pm &middot; IBEW Local 400 Union Hall</div><span class="moved">Rescheduled from Wednesday, December 23.</span></span></li>
+<li class="hol"><span class="when" data-calendar-day="2026-12-25"><span class="dow">Fri</span><span class="day">25</span><span class="mon">Dec</span></span><span class="what"><span class="title">Christmas Day (Union Holiday)</span><div class="meta">Hall closed</div></span></li>
+<li id="calendar-empty" hidden><span class="what">Nothing scheduled yet.</span></li>
 </ul>
 
 <footer>
@@ -145,6 +147,37 @@ It won&rsquo;t update when a meeting moves.</p>
         "The URL is selected. Choose Copy, then open Google’s page.";
     }
   });
+
+  // The page is static, but "Coming up" must not freeze on its publication
+  // date. Every not-yet-past row is shipped in the HTML; on each page load we
+  // reselect the first rows using the hall's civil date. If Intl is missing,
+  // the server-rendered build-date view remains as the conservative fallback.
+  try {
+    const list = document.getElementById("calendar-upcoming");
+    const empty = document.getElementById("calendar-empty");
+    const markers = list.querySelectorAll("[data-calendar-day]");
+    const parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: "America/New_York",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit"
+    }).formatToParts(new Date());
+    const values = Object.fromEntries(
+      parts.map((part) => [part.type, part.value])
+    );
+    const today = `${values.year}-${values.month}-${values.day}`;
+    const maximum = Number.parseInt(list.dataset.limit, 10);
+    let visible = 0;
+    markers.forEach((marker) => {
+      const row = marker.closest("li");
+      const show = marker.dataset.calendarDay >= today && visible < maximum;
+      row.hidden = !show;
+      if (show) visible += 1;
+    });
+    empty.hidden = visible !== 0;
+  } catch (_) {
+    // Keep the deterministic build-date fallback already present in the DOM.
+  }
 })();
 </script>
 </body>
