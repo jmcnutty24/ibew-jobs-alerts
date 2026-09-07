@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071a2d">
+  <meta name="description" content="A phone-friendly IBEW Local 400 shop steward quick reference: key contract rights, first-day checks, safety help and official tools.">
+  <meta property="og:title" content="Local 400 Shop Steward Quick Reference">
+  <meta property="og:description" content="Plain-language steward rights, jobsite checks and official Local 400, IBEW and government resources.">
+  <meta property="og:type" content="website">
+  <title>Shop Steward Quick Reference | Local 400 Member Hub</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --navy: #071a2d;
+      --panel: #0d2943;
+      --ink: #f8fbff;
+      --muted: #c5d2df;
+      --line: rgba(255, 255, 255, 0.17);
+      --gold: #ffcc4d;
+      --gold-ink: #17202a;
+      --blue: #71cfff;
+      --green: #91e6bd;
+      --red: #ffb3b3;
+      --max: 68rem;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background:
+        radial-gradient(circle at 50% -12%, rgba(42, 171, 238, 0.23), transparent 35rem),
+        linear-gradient(155deg, #061523 0%, var(--navy) 56%, #0a2239 100%);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.52;
+    }
+    a { color: var(--blue); text-decoration-thickness: 0.1em; text-underline-offset: 0.18em; }
+    a:hover { color: #d3f1ff; }
+    a:focus-visible, summary:focus-visible {
+      border-radius: 0.25rem;
+      outline: 3px solid var(--gold);
+      outline-offset: 4px;
+    }
+    .shell { width: min(100% - 2rem, var(--max)); margin-inline: auto; }
+    .skip {
+      position: fixed;
+      z-index: 20;
+      top: 0.5rem;
+      left: 0.5rem;
+      padding: 0.65rem 0.9rem;
+      border-radius: 0.55rem;
+      background: var(--gold);
+      color: var(--gold-ink);
+      font-weight: 900;
+      transform: translateY(-150%);
+    }
+    .skip:focus { transform: translateY(0); }
+    header { padding: 1rem 0 1.35rem; }
+    .topline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem 1rem;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: clamp(2rem, 7vw, 4rem);
+    }
+    .back { color: var(--ink); font-weight: 850; text-decoration: none; }
+    .reviewed { margin: 0; color: var(--muted); font-size: 0.82rem; }
+    .eyebrow {
+      margin: 0 0 0.75rem;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    h1 {
+      max-width: 14ch;
+      margin: 0;
+      font-size: clamp(2.55rem, 9vw, 5.1rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+    .lede {
+      max-width: 46rem;
+      margin: 1.1rem 0 1.25rem;
+      color: var(--muted);
+      font-size: clamp(1.04rem, 3vw, 1.2rem);
+    }
+    .actions, .link-row { display: flex; flex-wrap: wrap; gap: 0.62rem; }
+    .button {
+      display: inline-flex;
+      min-height: 3.05rem;
+      padding: 0.7rem 0.92rem;
+      border: 1px solid var(--line);
+      border-radius: 0.7rem;
+      align-items: center;
+      justify-content: center;
+      background: var(--panel);
+      color: var(--ink);
+      font-weight: 850;
+      text-align: center;
+      text-decoration: none;
+    }
+    .button.primary { border-color: transparent; background: var(--gold); color: var(--gold-ink); }
+    .emergency, .answer, .boundary, .source-note {
+      margin-top: 1rem;
+      padding: 1rem 1.05rem;
+      border-radius: 0.82rem;
+    }
+    .emergency {
+      border: 1px solid rgba(255, 179, 179, 0.48);
+      border-left: 0.36rem solid var(--red);
+      background: rgba(255, 179, 179, 0.08);
+    }
+    .answer {
+      border: 1px solid rgba(255, 204, 77, 0.48);
+      border-left: 0.36rem solid var(--gold);
+      background: rgba(255, 204, 77, 0.08);
+    }
+    .boundary {
+      border: 1px solid rgba(145, 230, 189, 0.44);
+      border-left: 0.36rem solid var(--green);
+      background: rgba(145, 230, 189, 0.07);
+    }
+    .source-note {
+      border: 1px solid var(--line);
+      background: rgba(0, 0, 0, 0.13);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .emergency p, .answer p, .boundary p, .source-note p { margin: 0; }
+    .emergency p + p, .answer p + p, .boundary p + p, .source-note p + p { margin-top: 0.55rem; }
+    .emergency strong { color: var(--red); }
+    .answer strong { color: var(--gold); }
+    .boundary strong { color: var(--green); }
+    .yes {
+      display: inline-block;
+      margin-right: 0.25rem;
+      color: var(--gold);
+      font-size: 1.32rem;
+      font-weight: 950;
+    }
+    .quick-nav {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .quick-nav a {
+      display: flex;
+      min-height: 3.15rem;
+      padding: 0.62rem;
+      border: 1px solid var(--line);
+      border-radius: 0.68rem;
+      align-items: center;
+      justify-content: center;
+      background: rgba(13, 41, 67, 0.78);
+      color: var(--ink);
+      font-size: 0.88rem;
+      font-weight: 850;
+      line-height: 1.2;
+      text-align: center;
+      text-decoration: none;
+    }
+    main { padding-bottom: 2rem; }
+    .section {
+      margin-top: 1rem;
+      padding: clamp(1.15rem, 4vw, 1.8rem);
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      background: rgba(13, 41, 67, 0.91);
+      box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15);
+    }
+    h2 { margin: 0 0 0.42rem; font-size: clamp(1.5rem, 5vw, 2.05rem); letter-spacing: -0.035em; }
+    h3 { margin: 0 0 0.4rem; font-size: 1.06rem; line-height: 1.28; }
+    .intro { max-width: 54rem; margin: 0 0 1rem; color: var(--muted); }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.72rem; }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .card, .resource, details {
+      border: 1px solid var(--line);
+      border-radius: 0.76rem;
+      background: rgba(0, 0, 0, 0.13);
+    }
+    .card, .resource { padding: 0.92rem; }
+    .card p, .resource p { margin: 0; color: var(--muted); }
+    .card p + p, .resource p + p { margin-top: 0.52rem; }
+    .card ul { margin: 0.5rem 0 0; padding-left: 1.22rem; }
+    li + li { margin-top: 0.36rem; }
+    .tag {
+      display: inline-block;
+      margin-bottom: 0.52rem;
+      padding: 0.18rem 0.46rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--green);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .tag.local { color: var(--gold); }
+    .tag.right { color: var(--blue); }
+    .tag.urgent { color: var(--red); }
+    .resource a { display: inline-block; margin-top: 0.58rem; font-weight: 850; }
+    dl.terms {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.62rem;
+      margin: 0;
+    }
+    .term { padding: 0.78rem; border: 1px solid var(--line); border-radius: 0.7rem; background: rgba(0, 0, 0, 0.13); }
+    dt { color: var(--gold); font-weight: 900; }
+    dd { margin: 0.12rem 0 0; color: var(--muted); }
+    .steps { margin: 0.65rem 0 0; padding-left: 1.3rem; }
+    .section-label {
+      margin: 1.15rem 0 0.62rem;
+      color: var(--gold);
+      font-size: 0.79rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    details + details { margin-top: 0.62rem; }
+    summary { min-height: 3.1rem; padding: 0.78rem 0.92rem; cursor: pointer; font-weight: 850; }
+    .detail { padding: 0 0.92rem 0.92rem; color: var(--muted); }
+    .detail p { margin: 0.42rem 0; }
+    .detail ul { margin: 0.48rem 0 0; padding-left: 1.2rem; }
+    .tool-list { columns: 2 17rem; }
+    footer { padding: 1.3rem 0 5.8rem; color: #a7b8c9; font-size: 0.84rem; text-align: center; }
+    .dock {
+      position: fixed;
+      z-index: 10;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.42rem;
+      padding: 0.56rem max(0.56rem, env(safe-area-inset-right)) calc(0.56rem + env(safe-area-inset-bottom)) max(0.56rem, env(safe-area-inset-left));
+      border-top: 1px solid var(--line);
+      background: rgba(7, 26, 45, 0.97);
+      box-shadow: 0 -0.6rem 1.5rem rgba(0, 0, 0, 0.3);
+    }
+    .dock a {
+      display: flex;
+      min-height: 2.9rem;
+      padding: 0.42rem;
+      border: 1px solid var(--line);
+      border-radius: 0.58rem;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+      line-height: 1.15;
+      text-align: center;
+      text-decoration: none;
+    }
+    .dock a:first-child { border-color: transparent; background: var(--gold); color: var(--gold-ink); }
+    @media (max-width: 48rem) {
+      .quick-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      dl.terms, .grid.three { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 36rem) {
+      header { padding-top: 0.8rem; }
+      .topline { margin-bottom: 2.2rem; }
+      .grid, .grid.three, dl.terms { grid-template-columns: 1fr; }
+      .button { width: 100%; }
+      .tool-list { columns: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    @media print {
+      :root { color-scheme: light; }
+      body { background: #fff; color: #111; font-size: 8.8pt; line-height: 1.32; }
+      .shell { width: 100%; }
+      .skip, .quick-nav, .actions, .back, .dock { display: none; }
+      header { padding: 0 0 0.6rem; }
+      .topline { margin-bottom: 0.55rem; justify-content: flex-end; }
+      h1 { font-size: 28pt; }
+      h2 { font-size: 15pt; }
+      h3 { font-size: 10pt; }
+      .reviewed, .lede, .intro, .card p, .resource p, .detail, .source-note, footer { color: #333; }
+      .section, .card, .resource, details, .term {
+        border-color: #888;
+        background: #fff;
+        box-shadow: none;
+      }
+      .section { padding: 0.72rem; margin-top: 0.6rem; }
+      .card, .resource { padding: 0.62rem; }
+      .grid { gap: 0.45rem; }
+      dl.terms { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.4rem; }
+      .term { padding: 0.52rem; }
+      .emergency, .answer, .boundary, .source-note { padding: 0.62rem; background: #fff; border-color: #555; }
+      .tag { margin-bottom: 0.3rem; border-color: #777; color: #111 !important; }
+      a { color: #111; }
+      a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 6.8pt; overflow-wrap: anywhere; }
+      details:not([open]):not(.print-open) .detail { display: none; }
+      details.print-open .detail { display: block !important; }
+      details.print-open::details-content {
+        block-size: auto !important;
+        content-visibility: visible !important;
+      }
+      summary { min-height: 0; padding: 0.5rem 0.62rem; }
+      footer { padding: 0.75rem 0 0; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main-content">Skip to quick reference</a>
+  <header class="shell">
+    <div class="topline">
+      <a class="back" href="index.html">&larr; Local 400 Member Hub</a>
+      <p class="reviewed">Official public sources checked September 6, 2026</p>
+    </div>
+    <p class="eyebrow">IBEW Local 400 &middot; phone-friendly</p>
+    <h1>Shop Steward Quick Reference</h1>
+    <p class="lede">Use this when a member needs help on the job. Check the rule, protect the member&rsquo;s privacy, and call Local 400 when you need Union direction.</p>
+    <div class="actions">
+      <a class="button primary" href="tel:+17326817111">Call Local 400: (732) 681-7111</a>
+      <a class="button" href="#first-day">First day</a>
+      <a class="button" href="#pay-hours">Pay &amp; overtime</a>
+    </div>
+    <aside class="emergency" aria-label="Emergency direction">
+      <p><strong>Immediate threat to life or serious injury:</strong> call 911 and follow the jobsite emergency plan. Then notify Local 400. Do not wait for a web form.</p>
+    </aside>
+  </header>
+
+  <main id="main-content" class="shell">
+    <nav aria-label="Quick reference sections">
+      <ul class="quick-nav">
+        <li><a href="#start">Start here</a></li>
+        <li><a href="#role">Your role</a></li>
+        <li><a href="#first-day">First day</a></li>
+        <li><a href="#pay-hours">Pay &amp; hours</a></li>
+        <li><a href="#member-help">Member help</a></li>
+        <li><a href="#resources">Official tools</a></li>
+      </ul>
+    </nav>
+
+    <section id="start" class="section" aria-labelledby="start-heading">
+      <h2 id="start-heading">Start here: know these words</h2>
+      <dl class="terms">
+        <div class="term"><dt>CBA</dt><dd><strong>Collective Bargaining Agreement:</strong> the main union labor contract.</dd></div>
+        <div class="term"><dt>PLA</dt><dd><strong>Project Labor Agreement:</strong> a job-specific labor contract for one project.</dd></div>
+        <div class="term"><dt>OSHA</dt><dd><strong>Occupational Safety and Health Administration:</strong> the federal workplace-safety agency.</dd></div>
+        <div class="term"><dt>NLRB</dt><dd><strong>National Labor Relations Board:</strong> the federal agency for private-sector labor rights.</dd></div>
+        <div class="term"><dt>SDS</dt><dd><strong>Safety Data Sheet:</strong> chemical hazards, safe handling and first-aid information.</dd></div>
+        <div class="term"><dt>Grievance</dt><dd>A formal claim that the labor agreement was violated.</dd></div>
+        <div class="term"><dt>Weingarten rights</dt><dd>A worker&rsquo;s right to request Union representation during qualifying questioning that could lead to discipline.</dd></div>
+        <div class="term"><dt>Journeyman Wireman</dt><dd>The CBA&rsquo;s name for a journey-level electrician.</dd></div>
+      </dl>
+
+      <p class="section-label">Your Business Agent</p>
+      <div class="grid">
+        <article class="card">
+          <span class="tag local">Monmouth County</span>
+          <h3>Robert &ldquo;Rob&rdquo; Baumgartner</h3>
+          <p>Business Agent for Monmouth County.</p>
+        </article>
+        <article class="card">
+          <span class="tag local">Ocean County</span>
+          <h3>Michael &ldquo;Mike&rdquo; Ricca</h3>
+          <p>Business Agent for Ocean County.</p>
+        </article>
+      </div>
+      <p class="source-note">Call Local 400 at <a href="tel:+17326817111">(732) 681-7111</a> to reach your county Business Agent. <a href="https://www.ibew400.org/about/officers-representatives" target="_blank" rel="noopener noreferrer">Local 400 officers and representatives</a>.</p>
+
+      <aside class="answer" aria-labelledby="pla-answer">
+        <h2 id="pla-answer">Can a PLA override the CBA?</h2>
+        <p><span class="yes">Yes.</span> A Project Labor Agreement can <strong>supersede</strong>&mdash;replace or override&mdash;the regular Collective Bargaining Agreement rules for that project. It may change some rules or many of them.</p>
+        <p>Do not assume a PLA wipes out every CBA rule. Read both documents and ask your Local 400 Business Agent which rule controls before acting. <a href="https://www.ibew400.org/political-action/project-labor-agreements" target="_blank" rel="noopener noreferrer">Read Local 400&rsquo;s PLA explanation</a>.</p>
+      </aside>
+      <p class="source-note">Contract summaries are quick references. Get the signed CBA, any project PLA or addenda (official changes), and the Local-approved grievance process from Local 400.</p>
+    </section>
+
+    <section id="role" class="section" aria-labelledby="role-heading">
+      <h2 id="role-heading">1. Your job as steward</h2>
+      <p class="intro">The Union appoints the steward. Your main contract duty is to help see that the agreement is followed while you continue your regular Journeyman Wireman work.</p>
+      <div class="grid">
+        <article class="card">
+          <span class="tag">CBA section 2.12</span>
+          <h3>Time and protection</h3>
+          <p>You get sufficient time during regular working hours for steward duties. The employer may not discriminate against you for faithfully doing those duties.</p>
+        </article>
+        <article class="card">
+          <span class="tag">CBA section 2.12</span>
+          <h3>Overtime</h3>
+          <p>The employer must distribute overtime as equally as possible among Journeymen on the job. You get at least two hours&rsquo; notice of scheduled overtime and must be consulted on every overtime assignment.</p>
+        </article>
+        <article class="card">
+          <span class="tag">CBA section 2.15</span>
+          <h3>Employee tool inspections</h3>
+          <p>An employer inspection of an employee&rsquo;s required tools is to happen in your presence. The employer supplies other necessary tools and equipment.</p>
+        </article>
+        <article class="card">
+          <span class="tag">CBA section 2.12</span>
+          <h3>Kept on the appointed job</h3>
+          <p>You are kept on that job until no more than two Journeymen remain, unless the Local 400 Business Manager decides otherwise.</p>
+        </article>
+      </div>
+
+      <aside class="boundary">
+        <p><strong>Your role has limits.</strong> You are not management, the employer&rsquo;s safety manager, or automatically the Union&rsquo;s final decision-maker. The agreement says people authorized by the Union and employer handle grievances; it does not give every steward that authority. Do not order a strike, slowdown, walkout or shutdown.</p>
+      </aside>
+    </section>
+
+    <section id="first-day" class="section" aria-labelledby="first-day-heading">
+      <h2 id="first-day-heading">2. First day: get the right information</h2>
+      <div class="grid">
+        <article class="card">
+          <span class="tag local">Get from Local 400</span>
+          <ul>
+            <li>Your appointment and assigned Business Agent.</li>
+            <li>The signed CBA for that type of work and member.</li>
+            <li>Any project PLA or official changes.</li>
+            <li>Current wage rates and special pay rates.</li>
+            <li>The approved grievance form, process, recipient and deadlines.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <span class="tag right">Locate on the job</span>
+          <ul>
+            <li>Foreman and site-safety contact.</li>
+            <li>Emergency route, alarms and meeting point.</li>
+            <li>First aid and how to report an injury.</li>
+            <li>Safety Data Sheets for jobsite chemicals.</li>
+            <li>Normal schedule and overtime notice method.</li>
+          </ul>
+        </article>
+      </div>
+      <p class="source-note"><strong>No invented packet:</strong> the checked CBA does not say the contractor must hand the steward these documents. Ask Local 400 for Union documents. Ask the contractor or site foreman where to find jobsite safety information.</p>
+
+      <p class="section-label">What the checked CBA does require from the employer</p>
+      <div class="grid three">
+        <article class="card"><h3>Tools and storage</h3><p>Necessary tools beyond the employee list, plus lockable tool storage. CBA sections 2.15 and 3.12.</p></article>
+        <article class="card"><h3>Basic jobsite items</h3><p>Drinking water and cups; where practical, a heated place to eat and change. CBA section 3.12.</p></article>
+        <article class="card"><h3>Safety items</h3><p>Helmets, a first-aid kit and rain gear, plus locks and warning tags for temporary power. CBA sections 3.13 and 11.</p></article>
+      </div>
+    </section>
+
+    <section id="pay-hours" class="section" aria-labelledby="pay-hours-heading">
+      <h2 id="pay-hours-heading">3. Pay, hours &amp; overtime</h2>
+      <p class="intro">Current Local 400 Inside Agreement: May 29, 2023&ndash;May 30, 2027. A PLA or signed change may differ.</p>
+      <div class="grid">
+        <article class="card">
+          <span class="tag">CBA section 3.01(a)</span>
+          <h3>What is the regular workweek?</h3>
+          <p>The 40-hour week is Monday&ndash;Friday. A day is eight hours between 7:00 a.m. and 4:30 p.m.; lunch is noon&ndash;12:30 p.m.</p>
+        </article>
+        <article class="card">
+          <span class="tag right">CBA section 3.02(a)</span>
+          <h3>When is time-and-a-half (1&frac12;&times;)?</h3>
+          <p>Work outside regularly scheduled hours and all Saturday work.</p>
+        </article>
+        <article class="card">
+          <span class="tag urgent">CBA section 3.02(a)</span>
+          <h3>When is double time (2&times;)?</h3>
+          <p>Sunday and these holidays: New Year&rsquo;s Day, President&rsquo;s Day, Memorial Day, Independence Day, Labor Day, Presidential Election Day, Veterans Day, Thanksgiving Day and Christmas Day. A Saturday holiday is observed Friday; a Sunday holiday is observed Monday. Labor Day work requires an emergency and Business Manager permission.</p>
+        </article>
+        <article class="card">
+          <span class="tag local">CBA sections 3.01(c) and 3.03(b)</span>
+          <h3>Is anything after 10 hours automatically double time?</h3>
+          <p><strong>No.</strong> After any 10 hours worked, there is a 30-minute paid break. On approved four-10s, hours over 10 Monday&ndash;Thursday are 1&frac12;&times;, not 2&times;.</p>
+        </article>
+        <article class="card">
+          <span class="tag">CBA section 3.01(c)</span>
+          <h3>Can the contractor simply start four 10s?</h3>
+          <p><strong>No.</strong> Only with employer and Union consent. Four-10s run Monday&ndash;Thursday, 7:00 a.m.&ndash;6:30 p.m., with a 30-minute lunch. Hours over 10 and all Friday/Saturday work are 1&frac12;&times;.</p>
+        </article>
+        <article class="card">
+          <span class="tag right">CBA sections 3.02 and 3.08(d)</span>
+          <h3>Does holiday double time mean a paid day off?</h3>
+          <p>Not by itself. Double time applies to hours worked. Separate paid-holiday language covers foreman classifications. Check the project PLA.</p>
+        </article>
+      </div>
+
+      <details class="print-open">
+        <summary>Show-up, call-back, payday and layoff rules</summary>
+        <div class="detail">
+          <ul>
+            <li><strong>Show-up:</strong> Directed to report but unable to start because of weather, materials or another cause beyond the worker&rsquo;s control: two hours&rsquo; pay unless notified before start time. Starting then being stopped for those reasons also pays two hours. Work after 12:30 p.m. pays a full day unless the worker leaves voluntarily.</li>
+            <li><strong>Call-back:</strong> After going home: at least four hours at the proper overtime rate, including weekends and holidays.</li>
+            <li><strong>Payday:</strong> Weekly, no later than quitting time Wednesday; Thursday when a holiday falls Tuesday or Wednesday. The pay stub must list all deductions and contributions.</li>
+            <li><strong>Layoff:</strong> All wages are due immediately, with a half-hour notice and paid gathering time. Lack of work pays a full day. Reporting without prior-day notice generally pays at least four hours. Call the Business Agent if the notice or pay is wrong.</li>
+          </ul>
+        </div>
+      </details>
+      <p class="source-note">CBA sections 2.12, 3.01&ndash;3.04, 3.08 and 3.09. Confirm the signed agreement, wage sheet and project PLA with your Business Agent before asserting a violation.</p>
+    </section>
+
+    <section id="member-help" class="section" aria-labelledby="member-help-heading">
+      <h2 id="member-help-heading">4. When a member needs help</h2>
+      <p class="intro">Listen, keep the facts private, check the CBA and PLA, and call the Business Agent promptly. Use only the form and process Local 400 approves.</p>
+      <div class="grid">
+        <article class="card">
+          <span class="tag urgent">Possible discipline</span>
+          <h3>The worker should request a Union representative</h3>
+          <p><strong>Simple request:</strong> &ldquo;I believe this meeting could lead to discipline. I request Union representation.&rdquo;</p>
+          <p><strong>Weingarten rights</strong> apply to a union-represented worker in qualifying investigatory questioning the worker reasonably believes could lead to discipline. The worker must request representation.</p>
+          <p><a href="https://www.nlrb.gov/sites/default/files/attachments/pages/node-184/kyr_weingarten.png" target="_blank" rel="noopener noreferrer">Open the official NLRB request card</a></p>
+        </article>
+        <article class="card">
+          <span class="tag local">Contract or grievance</span>
+          <h3>Call the Business Agent now</h3>
+          <p>Check which CBA, PLA or official change controls. Follow Local 400&rsquo;s approved grievance process and deadline.</p>
+          <p>The CBA&rsquo;s 48-hour rule applies to what authorized representatives do with an unresolved dispute. It is not written as a member&rsquo;s filing deadline.</p>
+        </article>
+        <article class="card">
+          <span class="tag right">Pay, rate or overtime</span>
+          <h3>Confirm the rate and the rule</h3>
+          <p>Use Local 400&rsquo;s wage-rate request and check the project PLA. For scheduled overtime, remember the steward notice and consultation rights in CBA section 2.12.</p>
+          <p><a href="https://www.ibew400.org/inquiries/wage-rates" target="_blank" rel="noopener noreferrer">Request current wage rates</a></p>
+        </article>
+        <article class="card">
+          <span class="tag urgent">Hazard or injury</span>
+          <h3>Emergency first; then report</h3>
+          <p>For immediate danger, call 911 and follow the site emergency plan. Notify Local 400. OSHA and New Jersey workers&rsquo; compensation are separate government routes, listed below.</p>
+        </article>
+        <article class="card">
+          <span class="tag right">Tools or staffing</span>
+          <h3>Use the exact agreement language</h3>
+          <p>Be present for an employee tool inspection. Check the CBA and project PLA before asserting a staffing, crew-size or assignment rule.</p>
+        </article>
+        <article class="card">
+          <span class="tag local">Harassment or retaliation</span>
+          <h3>Keep details private and call the hall</h3>
+          <p>Do not post names, medical information, discipline, testing details or case facts in Discord. Ask the Business Agent which Union and government route applies.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="safety" class="section" aria-labelledby="safety-heading">
+      <h2 id="safety-heading">5. Workplace safety</h2>
+      <p class="intro">The checked CBA makes the employer responsible for jobsite safety. A steward should raise hazards and help members reach the right Union or government resource without taking over the employer&rsquo;s safety job.</p>
+      <div class="grid">
+        <article class="card">
+          <span class="tag">CBA section 11</span>
+          <h3>Quick contract checks</h3>
+          <ul>
+            <li>Employer-furnished helmets, first-aid kit and rain gear.</li>
+            <li>At least two Journeymen for energized circuits or equipment at 440 volts or higher.</li>
+            <li>For energized manholes at 600 volts or higher: two Journeymen, a safety person above, and gas testing and pumping.</li>
+            <li>Employer-furnished locks and warning tags for temporary-power lockout/tagout&mdash;keeping power from being turned on unexpectedly.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <span class="tag right">Official OSHA help</span>
+          <h3>Know the difference</h3>
+          <p>Workers can report hazards and contact OSHA. Refusing dangerous work has a strict legal test; this page does not give blanket stop-work authority.</p>
+          <p><a href="https://www.osha.gov/workers" target="_blank" rel="noopener noreferrer">OSHA worker rights</a></p>
+          <p><a href="https://www.osha.gov/workers/right-to-refuse" target="_blank" rel="noopener noreferrer">OSHA: refusing dangerous work</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="resources" class="section" aria-labelledby="resources-heading">
+      <h2 id="resources-heading">6. Official tools and forms</h2>
+      <p class="intro">These resources already exist. Government forms are separate from Local 400&rsquo;s grievance process.</p>
+      <div class="grid three">
+        <article class="resource"><span class="tag local">Local 400</span><h3>Call or contact the hall</h3><p>Contract questions and Union direction.</p><a href="https://www.ibew400.org/inquiries/contact-us" target="_blank" rel="noopener noreferrer">Local 400 contact page</a></article>
+        <article class="resource"><span class="tag local">Local 400 form</span><h3>Wage-rate request</h3><p>The verified public Local form for current wage rates.</p><a href="https://www.ibew400.org/inquiries/wage-rates" target="_blank" rel="noopener noreferrer">Open wage-rate request</a></article>
+        <article class="resource"><span class="tag local">Local 400</span><h3>Business Agents</h3><p>Find current officers and representatives.</p><a href="https://www.ibew400.org/about/officers-representatives" target="_blank" rel="noopener noreferrer">Open representative list</a></article>
+        <article class="resource"><span class="tag right">IBEW</span><h3>Steward training</h3><p>Basic and advanced steward training from the International union.</p><a href="https://ibew.org/our-departments/education/" target="_blank" rel="noopener noreferrer">IBEW Education</a></article>
+        <article class="resource"><span class="tag right">NLRB</span><h3>Weingarten rights</h3><p>The official conditions and employer choices after a request.</p><a href="https://www.nlrb.gov/about-nlrb/rights-we-protect/your-rights/weingarten-rights" target="_blank" rel="noopener noreferrer">Read Weingarten rights</a></article>
+        <article class="resource"><span class="tag right">OSHA</span><h3>Safety rights</h3><p>Hazard reporting, inspections, injury records and retaliation protection.</p><a href="https://www.osha.gov/workers" target="_blank" rel="noopener noreferrer">OSHA worker rights</a></article>
+      </div>
+
+      <aside class="answer">
+        <p><strong>Get these from Local 400:</strong> the signed current CBA, each project PLA or official change, the approved grievance form/process/deadlines, and a Local steward manual if one exists. No public Local 400 version of those materials was verified, so this guide does not invent them.</p>
+      </aside>
+
+      <details>
+        <summary>Open the CBA section 2.15 employee tool list</summary>
+        <div class="detail">
+          <p>The checked agreement says Journeymen report with these tools, and these tools only, in A-1 condition. The employer supplies every other necessary tool or equipment. Confirm the list against the signed agreement and any project PLA.</p>
+          <ul class="tool-list">
+            <li>Latest Code Book</li>
+            <li>3/8-inch drive socket set, 3/8 to 3/4 inch</li>
+            <li>Screwdrivers: 4, 6, 8 and 10 inch</li>
+            <li>6-inch diagonal cutting pliers</li>
+            <li>1/4 to 3/4-inch box wrenches</li>
+            <li>6-inch Phillips screwdriver</li>
+            <li>8 or 9-inch side-cutting pliers</li>
+            <li>1 to 3-inch chain wrench</li>
+            <li>Plumb bob</li>
+            <li>Two pairs of channel-lock pliers</li>
+            <li>Electrician&rsquo;s knife</li>
+            <li>1/2-inch wood chisel</li>
+            <li>Long-nose pliers</li>
+            <li>6-foot rule or 25-foot steel tape</li>
+            <li>Hacksaw frame</li>
+            <li>1/2 to 1-1/4-inch pipe reamer</li>
+            <li>Awl / center punch</li>
+            <li>Wire strippers</li>
+            <li>Small and large Allen-wrench sets</li>
+            <li>Claw hammer</li>
+            <li>Adjustable square</li>
+            <li>Tap handles up to 1/4 inch</li>
+            <li>Compass-saw handle only</li>
+            <li>Tool carrier</li>
+            <li>9-inch pouch-type small level</li>
+            <li>Flashlight / continuity tester</li>
+            <li>10-inch crescent wrench</li>
+            <li>Roto-Split frame only</li>
+            <li>Pencil and keel</li>
+            <li>600-volt tester</li>
+          </ul>
+          <p>All pliers are to have insulated handles.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>More official government help &mdash; not Local 400 forms</summary>
+        <div class="detail">
+          <ul>
+            <li><a href="https://www.osha.gov/workers/file-complaint" target="_blank" rel="noopener noreferrer">OSHA safety complaint</a></li>
+            <li><a href="https://www.osha.gov/whistleblower/WBComplaint" target="_blank" rel="noopener noreferrer">OSHA retaliation complaint</a></li>
+            <li><a href="https://www.nlrb.gov/guidance/fillable-forms" target="_blank" rel="noopener noreferrer">NLRB charge forms</a> &mdash; a charge is not a Local grievance.</li>
+            <li><a href="https://www.nj.gov/labor/wageandhour/claims-appeals-investigations/file/" target="_blank" rel="noopener noreferrer">New Jersey wage complaint</a></li>
+            <li><a href="https://www.nj.gov/labor/workerscompensation/tools-resources/forms-publications/" target="_blank" rel="noopener noreferrer">New Jersey workers&rsquo; compensation forms</a></li>
+            <li><a href="https://www.njoag.gov/about/divisions-and-offices/division-on-civil-rights-home/learn-how-to-file-a-complaint/" target="_blank" rel="noopener noreferrer">New Jersey civil-rights complaint</a></li>
+            <li><a href="https://www.eeoc.gov/filing-charge-discrimination" target="_blank" rel="noopener noreferrer">Federal employment-discrimination charge</a></li>
+          </ul>
+          <p>Call Local 400 before filing in the Union&rsquo;s name or on a member&rsquo;s behalf. Agency deadlines may apply.</p>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <footer class="shell">Member-run quick reference. For official Union direction, call IBEW Local 400 at (732) 681-7111.</footer>
+  <nav class="dock" aria-label="Phone shortcuts">
+    <a href="tel:+17326817111">Call the hall</a>
+    <a href="#member-help">Member help</a>
+    <a href="#pay-hours">Pay &amp; hours</a>
+  </nav>
+</body>
+</html>
