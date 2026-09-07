@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#071a2d">
-  <meta name="description" content="Member-run tools for IBEW Local 400: job alerts, union calendar and a phone-friendly shop steward quick reference.">
+  <meta name="description" content="Member-run tools for IBEW Local 400: job alerts, union calendar, current training opportunities and a phone-friendly shop steward quick reference.">
   <meta property="og:title" content="Local 400 Job Alerts">
   <meta property="og:description" content="Job calls, meeting dates and union holidays for IBEW Local 400 &mdash; on Discord or Telegram, plus a calendar you can subscribe to.">
   <meta property="og:type" content="website">
@@ -99,6 +99,7 @@
     }
 
     .primary.calendar { background: var(--gold); color: var(--gold-dark); }
+    .primary.training { background: #9ce3c1; color: var(--gold-dark); }
     .primary.steward { background: #91e6bd; color: var(--gold-dark); }
     .primary.discord { background: var(--discord); color: #fff; }
     .primary.telegram { background: var(--telegram); color: #04121e; }
@@ -263,13 +264,26 @@
       </a>
     </section>
 
+    <section class="panel" aria-labelledby="training-heading">
+      <h2 id="training-heading">Current training opportunities</h2>
+      <p style="margin:0 0 1.1rem;color:var(--muted)">
+        See the courses and reimbursement opportunities in the latest
+        accepted training bulletin. The list updates as new bulletins arrive
+        and old course dates pass.
+      </p>
+      <a class="primary training" href="training.html">
+        View current training
+      </a>
+    </section>
+
     <section class="panel" aria-labelledby="discord-heading">
       <h2 id="discord-heading">What is on Discord</h2>
       <p style="margin:0;color:var(--muted)">
-        Job calls post to <strong>#job-alerts</strong> and meeting and holiday
-        notices to <strong>#calendar-reminders</strong>, as they happen. It is a
-        place members can talk to each other too, which a one-way bot is not.
-        Free, works on your phone or in a browser, no app required.
+        Job calls post to <strong>#job-alerts</strong>, current courses stay in
+        <strong>#training</strong>, and meeting and holiday notices post to
+        <strong>#calendar-reminders</strong>. It is a place members can talk to
+        each other too, which a one-way bot is not. Free, works on your phone
+        or in a browser, no app required.
       </p>
     </section>
 
