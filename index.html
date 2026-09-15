@@ -165,7 +165,7 @@ footer{margin-top:2rem;text-align:center}
 background:#000;transition:background-color .6s ease}
 #intro[hidden]{display:none}
 #intro-stage{position:relative;display:grid;place-items:center;
-width:min(78vw,78vh,420px);transition:width .9s cubic-bezier(.2,.7,.3,1)}
+width:min(78vw,78vh,420px)}
 #intro video{display:block;width:100%;height:auto;transition:opacity .9s ease}
 #intro-word{position:absolute;inset:0;width:100%;height:100%;overflow:visible;
 pointer-events:none}
@@ -175,11 +175,22 @@ pointer-events:none}
 #intro-word text{fill:#fff;font-family:-apple-system,BlinkMacSystemFont,
 "Segoe UI",Roboto,Arial,sans-serif;font-weight:800;font-size:6px;
 letter-spacing:.04em;opacity:0}
+#intro-word .arc-foot{font-size:5px}
 #intro.playing #intro-word text{animation:introletter .5s ease forwards}
-#intro.playing #intro-word text:nth-of-type(1){animation-delay:2.5s}
-#intro.playing #intro-word text:nth-of-type(2){animation-delay:2.68s}
-#intro.playing #intro-word text:nth-of-type(3){animation-delay:2.86s}
-#intro.playing #intro-word text:nth-of-type(4){animation-delay:3.04s}
+#intro.playing #intro-word .arc-top:nth-of-type(1){animation-delay:2.50s}
+#intro.playing #intro-word .arc-top:nth-of-type(2){animation-delay:2.68s}
+#intro.playing #intro-word .arc-top:nth-of-type(3){animation-delay:2.86s}
+#intro.playing #intro-word .arc-top:nth-of-type(4){animation-delay:3.04s}
+#intro.playing #intro-word .arc-foot:nth-of-type(5){animation-delay:3.300s}
+#intro.playing #intro-word .arc-foot:nth-of-type(6){animation-delay:3.355s}
+#intro.playing #intro-word .arc-foot:nth-of-type(7){animation-delay:3.410s}
+#intro.playing #intro-word .arc-foot:nth-of-type(8){animation-delay:3.465s}
+#intro.playing #intro-word .arc-foot:nth-of-type(9){animation-delay:3.520s}
+#intro.playing #intro-word .arc-foot:nth-of-type(10){animation-delay:3.575s}
+#intro.playing #intro-word .arc-foot:nth-of-type(11){animation-delay:3.630s}
+#intro.playing #intro-word .arc-foot:nth-of-type(12){animation-delay:3.685s}
+#intro.playing #intro-word .arc-foot:nth-of-type(13){animation-delay:3.740s}
+#intro.playing #intro-word .arc-foot:nth-of-type(14){animation-delay:3.795s}
 @keyframes introletter{from{opacity:0}to{opacity:.92}}
 #intro-skip{position:absolute;right:16px;bottom:16px;min-height:44px;
 padding:10px 18px;border:1px solid rgba(255,255,255,.45);border-radius:10px;
@@ -188,7 +199,6 @@ transition:opacity .4s ease}
 #intro-skip:hover{border-color:#fff}
 /* Settled: the ground goes, the emblem recedes, the page takes over. */
 #intro.settled{background:transparent;pointer-events:none;z-index:0}
-#intro.settled #intro-stage{width:min(92vw,92vh,620px)}
 #intro.settled video{opacity:.05}
 #intro.settled #intro-word,#intro.settled #intro-skip{opacity:0}
 .shell{position:relative;z-index:1}
@@ -202,14 +212,20 @@ transition:opacity .4s ease}
              aria-hidden="true"></video>
       <svg id="intro-word" viewBox="0 0 100 100" aria-hidden="true"
            focusable="false">
-        <text x="50" y="50" text-anchor="middle"
-              transform="rotate(-25 50 50) translate(0 -52)">I</text>
-        <text x="50" y="50" text-anchor="middle"
-              transform="rotate(-8.4 50 50) translate(0 -52)">B</text>
-        <text x="50" y="50" text-anchor="middle"
-              transform="rotate(8.4 50 50) translate(0 -52)">E</text>
-        <text x="50" y="50" text-anchor="middle"
-              transform="rotate(25 50 50) translate(0 -52)">W</text>
+        <text class="arc-top" x="28.02" y="2.87" text-anchor="middle" transform="rotate(-25 28.02 2.87)">I</text>
+        <text class="arc-top" x="42.40" y="-1.44" text-anchor="middle" transform="rotate(-8.4 42.40 -1.44)">B</text>
+        <text class="arc-top" x="57.60" y="-1.44" text-anchor="middle" transform="rotate(8.4 57.60 -1.44)">E</text>
+        <text class="arc-top" x="71.98" y="2.87" text-anchor="middle" transform="rotate(25 71.98 2.87)">W</text>
+        <text class="arc-foot" x="9.02" y="82.01" text-anchor="middle" transform="rotate(52.0 9.02 82.01)">L</text>
+        <text class="arc-foot" x="14.84" y="88.31" text-anchor="middle" transform="rotate(42.5 14.84 88.31)">.</text>
+        <text class="arc-foot" x="21.61" y="93.57" text-anchor="middle" transform="rotate(33.1 21.61 93.57)">U</text>
+        <text class="arc-foot" x="29.15" y="97.64" text-anchor="middle" transform="rotate(23.6 29.15 97.64)">.</text>
+        <text class="arc-foot" x="45.71" y="101.82" text-anchor="middle" transform="rotate(4.7 45.71 101.82)">4</text>
+        <text class="arc-foot" x="54.29" y="101.82" text-anchor="middle" transform="rotate(-4.7 54.29 101.82)">0</text>
+        <text class="arc-foot" x="62.74" y="100.42" text-anchor="middle" transform="rotate(-14.2 62.74 100.42)">0</text>
+        <text class="arc-foot" x="78.39" y="93.57" text-anchor="middle" transform="rotate(-33.1 78.39 93.57)">H</text>
+        <text class="arc-foot" x="85.16" y="88.31" text-anchor="middle" transform="rotate(-42.5 85.16 88.31)">u</text>
+        <text class="arc-foot" x="90.98" y="82.01" text-anchor="middle" transform="rotate(-52.0 90.98 82.01)">b</text>
       </svg>
     </div>
     <button type="button" id="intro-skip">Skip</button>
