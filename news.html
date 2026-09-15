@@ -21,6 +21,8 @@ color-scheme:light dark;
 --warn-bg:#FDF1E3;
 --open:#1E6B3C;
 --closed:#B3261E;
+--panel:#E9E5DC;
+--copper:#8A5024;
 --measure:680px;
 }
 @media (prefers-color-scheme:dark){
@@ -37,6 +39,8 @@ color-scheme:light dark;
 --warn-bg:#2A1E10;
 --open:#6FD39A;
 --closed:#FF9A90;
+--panel:#202629;
+--copper:#D9A064;
 }
 }
 
@@ -77,6 +81,88 @@ transition-duration:.01ms !important;scroll-behavior:auto !important}
 body{font-size:1.1875rem}
 }
 
+.skip{position:absolute;left:-9999px}
+.skip:focus{position:static;display:block;padding:12px 16px;
+background:var(--warn-bg);color:var(--ink);font-weight:700;text-align:center}
+.masthead{background:var(--panel)}
+.masthead-in{max-width:var(--measure);margin:0 auto;padding:4px 16px;
+display:flex;align-items:center;gap:9px}
+.brand{display:inline-flex;align-items:center;gap:9px;min-height:40px;
+color:var(--ink);text-decoration:none;font-weight:800;font-size:1.0625rem;
+letter-spacing:.005em}
+.brand-mark{width:13px;height:17px;flex:none;fill:var(--copper)}
+.ckt-id{margin-left:auto;font-variant-numeric:tabular-nums;font-size:.75rem;
+font-weight:700;letter-spacing:.09em;color:var(--muted);white-space:nowrap}
+/* The bus. The bar itself is ALWAYS fully drawn; what animates is a bright
+   pass travelling along it, carried on a pseudo-element.
+   The first version animated the bar's own clip-path, which meant the page at
+   rest -- before the animation starts, and in any thumbnail or slow first
+   paint -- showed a bus bar about twelve pixels long and apparently broken.
+   Sweeping a highlight down a bar that is already there is also the more
+   honest picture: the bus exists, and what arrives is the current.
+   The highlight is a white overlay rather than a second colour token because
+   it has to lighten copper in both schemes and it never carries text. */
+.bus{position:relative;height:4px;background-color:var(--copper);overflow:hidden}
+.bus::after{content:"";position:absolute;inset:0;
+background:linear-gradient(90deg,
+rgba(255,255,255,0),rgba(255,255,255,.75) 50%,rgba(255,255,255,0))}
+@keyframes energize{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+@media (prefers-reduced-motion:no-preference){
+.bus::after{animation:energize 900ms cubic-bezier(.3,0,.2,1) both}
+}
+/* The strip WRAPS rather than scrolls. Scrolling it hid whichever breaker was
+   furthest right, and on the pages whose own circuit sat there -- News and the
+   steward guide -- a member arrived at a navigation in which nothing was
+   marked as current, which reads as a bug rather than as a scroll. Two rows on
+   a phone costs about fifty pixels and is worth it to never hide the member's
+   own position. */
+.bkr-strip{background:var(--panel);border-bottom:1px solid var(--line)}
+.bkr-row{max-width:var(--measure);margin:0 auto;padding:6px 16px 7px;
+display:flex;flex-wrap:wrap;gap:6px}
+.bkr{flex:none;display:flex;flex-direction:column;justify-content:center;
+min-height:42px;padding:3px 11px;border:1px solid var(--line);
+border-left:3px solid var(--line);border-radius:3px;background:var(--bg);
+color:var(--ink);text-decoration:none;
+transition:border-color 120ms steps(2,end),
+background-color 120ms steps(2,end),transform 90ms linear}
+.bkr-num{font-size:.6875rem;font-weight:700;letter-spacing:.1em;
+line-height:1.1;color:var(--muted);font-variant-numeric:tabular-nums}
+.bkr-name{font-size:.9375rem;font-weight:700;line-height:1.2;white-space:nowrap}
+.bkr:hover{border-color:var(--copper)}
+/* A breaker throws: it moves once, a short way, and stops. */
+.bkr:active{transform:translateY(1px)}
+.bkr[aria-current="page"]{background:var(--soft);border-left-color:var(--copper)}
+.bkr[aria-current="page"] .bkr-num{color:var(--copper)}
+.schedule{border:1px solid var(--line);border-radius:4px;overflow:hidden;
+margin:26px 0}
+.sch-head{display:flex;align-items:center;gap:12px;padding:9px 14px;
+background:var(--panel);border-bottom:1px solid var(--line);
+font-size:.6875rem;font-weight:700;letter-spacing:.11em;color:var(--muted)}
+.sch-head .h-num{flex:none;width:2.6em}
+.sch-head .h-state{margin-left:auto}
+.sch-row{display:flex;align-items:center;gap:12px;padding:11px 14px;
+min-height:56px;background:var(--bg);color:var(--ink);text-decoration:none;
+border-bottom:1px solid var(--line)}
+.sch-row:last-child{border-bottom:0}
+.sch-row:hover{background:var(--soft)}
+.sch-num{flex:none;width:2.6em;font-weight:700;color:var(--copper);
+font-variant-numeric:tabular-nums}
+.sch-load{min-width:0}
+.sch-name{display:block;font-weight:700}
+.sch-desc{display:block;color:var(--muted);font-size:.875rem;line-height:1.35}
+.sch-state{margin-left:auto;flex:none;display:inline-flex;align-items:center;
+gap:6px;font-size:.6875rem;font-weight:700;letter-spacing:.09em;
+color:var(--muted)}
+.sch-row.is-live .sch-state{color:var(--open)}
+.dot{width:9px;height:9px;border-radius:50%;border:2px solid currentColor}
+.is-live .dot{background:currentColor}
+@keyframes throwrow{from{opacity:0;transform:translateX(-7px)}
+to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:no-preference){
+.schedule .sch-row{animation:throwrow 260ms cubic-bezier(.2,0,.1,1) both;
+animation-delay:var(--d,0ms)}
+}
+
 .news{list-style:none;margin:0;padding:0}
 .news>li{background:var(--card);border:1px solid var(--line);border-radius:12px;
 padding:15px;margin:0 0 10px}
@@ -91,8 +177,11 @@ p{margin:0;white-space:pre-line}
 </style>
 </head>
 <body>
-<main>
-<a class="back" href="index.html">&larr; Member Hub</a>
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead"><div class="masthead-in"><a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 12 16" aria-hidden="true" focusable="false"><path d="M7.4 0 1 9.3h3.6L3.8 16 11 6.3H6.9L9.2 0z"/></svg><span>L.U. 400 Hub</span></a><span class="ckt-id">CKT 09</span></div></header>
+<div class="bus" aria-hidden="true"></div>
+<nav class="bkr-strip" aria-label="Member pages"><div class="bkr-row"><a class="bkr" href="index.html"><span class="bkr-num">01</span><span class="bkr-name">Job calls</span></a><a class="bkr" href="calendar.html"><span class="bkr-num">03</span><span class="bkr-name">Calendar</span></a><a class="bkr" href="training.html"><span class="bkr-num">05</span><span class="bkr-name">Training</span></a><a class="bkr" href="benefits.html"><span class="bkr-num">07</span><span class="bkr-name">Benefits</span></a><a class="bkr" href="news.html" aria-current="page"><span class="bkr-num">09</span><span class="bkr-name">News</span></a><a class="bkr" href="stewards.html"><span class="bkr-num">11</span><span class="bkr-name">Steward guide</span></a></div></nav>
+<main id="main">
 <header>
 <h1>News from the hall</h1>
 <p class="sub">No accepted bulletin yet</p>
