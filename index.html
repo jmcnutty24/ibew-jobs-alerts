@@ -216,6 +216,15 @@ margin-top:1rem}
 background:var(--soft)}
 .control code{color:var(--ink);font-size:1rem;font-weight:700}
 .control p,.fine-print p{margin:.35rem 0 0;color:var(--muted)}
+/* Full-bleed: the band breaks the measure deliberately, because a photograph
+   confined to a 680px column reads as an illustration dropped into an article
+   rather than as part of the page. The copper rules top and bottom tie it to
+   the bus bar in the chrome. */
+.band{position:relative;margin:2rem calc(50% - 50vw) 0;width:100vw;
+border-top:3px solid var(--copper);border-bottom:3px solid var(--copper);
+background:#05070a;line-height:0}
+.band img{width:100%;height:clamp(120px,30vw,190px);object-fit:cover;
+object-position:center}
 .fine-print{font-size:.9rem}
 .fine-print p+p{margin-top:.85rem}
 footer{margin-top:2rem;text-align:center}
@@ -353,6 +362,21 @@ transition:opacity .4s ease}
     </a>
     <p class="handle">Every meeting, union holiday and hall event &mdash; set it
       once and the dates keep themselves right on your phone.</p>
+
+    <!-- Generated art, not a stock photo and not hand-drawn: copper risers in
+         a switchgear lineup, which is the thing the directory below is named
+         after. It sits AFTER the three calls to action on purpose. Putting a
+         140px band above them looked better and pushed the Discord button off
+         the first screen of a phone, which is a bad trade on the one page
+         whose job is to convert.
+
+         It carries no text and nothing is laid over it, so it cannot cost a
+         contrast ratio anywhere. loading="lazy" means a member who joins from
+         the first screen and never scrolls pays nothing for it at all. -->
+    <figure class="band">
+      <img src="switchgear.webp" alt="" loading="lazy" decoding="async"
+           width="1400" height="390">
+    </figure>
 
     <section class="panel" aria-labelledby="directory-heading">
       <h2 id="directory-heading">Everything else on the hub</h2>
