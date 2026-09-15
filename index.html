@@ -135,9 +135,32 @@ footer{margin-top:2rem;text-align:center}
 .shell{padding-top:2rem}
 .controls{grid-template-columns:1fr}
 }
+
+/* Arrival animation. The clip is generated art on a pure black ground, so the
+   overlay is black too and the medallion reads as the whole screen rather than
+   a video rectangle pasted on one.
+   It is a courtesy, never a gate: it is hidden in the markup and only revealed
+   by script, so no-JS, a refused autoplay, a failed fetch or a reader who asked
+   for less motion all land straight on the site. It shows once per visitor, so
+   a member checking job calls between jobs pays for it exactly one time. */
+#intro{position:fixed;inset:0;z-index:100;display:grid;place-items:center;
+background:#000}
+#intro[hidden]{display:none}
+#intro video{display:block;width:min(78vw,78vh,420px);height:auto}
+#intro-skip{position:absolute;right:16px;bottom:16px;min-height:44px;
+padding:10px 18px;border:1px solid rgba(255,255,255,.45);border-radius:10px;
+background:transparent;color:#fff;font:inherit;font-weight:700;cursor:pointer}
+#intro-skip:hover{border-color:#fff}
+#intro.leaving{opacity:0;transition:opacity .35s ease}
+@media (prefers-reduced-motion:reduce){#intro{display:none!important}}
 </style>
 </head>
 <body>
+  <div id="intro" hidden>
+    <video id="intro-clip" src="seal.mp4" muted playsinline preload="auto"
+           aria-hidden="true"></video>
+    <button type="button" id="intro-skip">Skip</button>
+  </div>
   <main class="shell">
     <p class="eyebrow">Free for Local 400 members</p>
     <h1>See new job calls when they post.</h1>
@@ -285,5 +308,45 @@ footer{margin-top:2rem;text-align:center}
     <footer>No ads. No tracking scripts. Unsubscribe anytime with /stop.<br>
       Unofficial, member-run. Not the official Local 400 job board or union office.</footer>
   </main>
+  <script>
+  (() => {
+    "use strict";
+    const KEY = "local400-intro-seen";
+    const intro = document.getElementById("intro");
+    const clip = document.getElementById("intro-clip");
+    if (!intro || !clip || !clip.canPlayType) return;
+
+    const reduced = window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let seen = false;
+    try { seen = localStorage.getItem(KEY) === "1"; } catch (_) { seen = false; }
+    if (reduced || seen) return;
+
+    let done = false;
+    const dismiss = () => {
+      if (done) return;
+      done = true;
+      try { clip.pause(); } catch (_) {}
+      intro.classList.add("leaving");
+      document.documentElement.style.overflow = "";
+      setTimeout(() => { intro.hidden = true; }, 350);
+    };
+
+    intro.hidden = false;
+    document.documentElement.style.overflow = "hidden";
+    document.getElementById("intro-skip").addEventListener("click", dismiss);
+    intro.addEventListener("click", dismiss);
+    clip.addEventListener("ended", dismiss);
+    clip.addEventListener("error", dismiss);
+    document.addEventListener("keydown", dismiss);
+    // Nothing keeps a member from the page for more than six seconds, whatever
+    // the network or the codec does.
+    setTimeout(dismiss, 6000);
+
+    const started = clip.play();
+    if (started && typeof started.catch === "function") started.catch(dismiss);
+    try { localStorage.setItem(KEY, "1"); } catch (_) {}
+  })();
+  </script>
 </body>
 </html>
