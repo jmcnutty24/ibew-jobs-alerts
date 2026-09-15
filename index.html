@@ -136,29 +136,82 @@ footer{margin-top:2rem;text-align:center}
 .controls{grid-template-columns:1fr}
 }
 
-/* Arrival animation. The clip is generated art on a pure black ground, so the
-   overlay is black too and the medallion reads as the whole screen rather than
-   a video rectangle pasted on one.
-   It is a courtesy, never a gate: it is hidden in the markup and only revealed
-   by script, so no-JS, a refused autoplay, a failed fetch or a reader who asked
-   for less motion all land straight on the site. It shows once per visitor, so
-   a member checking job calls between jobs pays for it exactly one time. */
-#intro{position:fixed;inset:0;z-index:100;display:grid;place-items:center;
-background:#000}
+/* Arrival animation, then the emblem stays.
+
+   The clip is generated art on a pure black ground, so the overlay is black
+   too and the medallion reads as the whole screen rather than a video
+   rectangle pasted onto one. When it finishes the video is NOT removed: the
+   black ground drops away and the same element recedes to a faint fixed
+   backdrop, paused on its last frame. The emblem a member watches catch the
+   bolt is the emblem that stays behind the page -- no second asset, no extra
+   bytes, and nothing to keep in sync.
+
+   The 0.05 backdrop opacity is measured, not chosen by eye. Worst case is the
+   plate's near-white arcs lightening the dark ground under muted text, and its
+   black body darkening the white ground under the same:
+
+       alpha   light ink   light muted   dark ink   dark muted
+        0.05      16.03        5.22        14.22       7.64
+        0.07      15.31        4.99        13.46       7.23
+        0.14      12.97        4.23        10.76       5.78   below AA
+
+   At 0.05 the worst pair keeps 5.22, so body text stays far above AAA and
+   secondary text stays above AA in both schemes with margin to spare.
+
+   It stays a courtesy: hidden in the markup and revealed only by script, so
+   no-JS, a failed fetch, a refused autoplay and prefers-reduced-motion all
+   land straight on the page. */
+#intro{position:fixed;inset:0;z-index:2;display:grid;place-items:center;
+background:#000;transition:background-color .6s ease}
 #intro[hidden]{display:none}
-#intro video{display:block;width:min(78vw,78vh,420px);height:auto}
+#intro-stage{position:relative;display:grid;place-items:center;
+width:min(78vw,78vh,420px);transition:width .9s cubic-bezier(.2,.7,.3,1)}
+#intro video{display:block;width:100%;height:auto;transition:opacity .9s ease}
+#intro-word{position:absolute;inset:0;width:100%;height:100%;overflow:visible;
+pointer-events:none}
+/* Real type, not generated lettering: legible at any size and it cannot come
+   back as melted pseudo-letters the way a model renders text. Each letter
+   arrives on its own beat once the fist has closed. */
+#intro-word text{fill:#fff;font-family:-apple-system,BlinkMacSystemFont,
+"Segoe UI",Roboto,Arial,sans-serif;font-weight:800;font-size:6px;
+letter-spacing:.04em;opacity:0}
+#intro.playing #intro-word text{animation:introletter .5s ease forwards}
+#intro.playing #intro-word text:nth-of-type(1){animation-delay:2.5s}
+#intro.playing #intro-word text:nth-of-type(2){animation-delay:2.68s}
+#intro.playing #intro-word text:nth-of-type(3){animation-delay:2.86s}
+#intro.playing #intro-word text:nth-of-type(4){animation-delay:3.04s}
+@keyframes introletter{from{opacity:0}to{opacity:.92}}
 #intro-skip{position:absolute;right:16px;bottom:16px;min-height:44px;
 padding:10px 18px;border:1px solid rgba(255,255,255,.45);border-radius:10px;
-background:transparent;color:#fff;font:inherit;font-weight:700;cursor:pointer}
+background:transparent;color:#fff;font:inherit;font-weight:700;cursor:pointer;
+transition:opacity .4s ease}
 #intro-skip:hover{border-color:#fff}
-#intro.leaving{opacity:0;transition:opacity .35s ease}
+/* Settled: the ground goes, the emblem recedes, the page takes over. */
+#intro.settled{background:transparent;pointer-events:none;z-index:0}
+#intro.settled #intro-stage{width:min(92vw,92vh,620px)}
+#intro.settled video{opacity:.05}
+#intro.settled #intro-word,#intro.settled #intro-skip{opacity:0}
+.shell{position:relative;z-index:1}
 @media (prefers-reduced-motion:reduce){#intro{display:none!important}}
 </style>
 </head>
 <body>
   <div id="intro" hidden>
-    <video id="intro-clip" src="seal.mp4" muted playsinline preload="auto"
-           aria-hidden="true"></video>
+    <div id="intro-stage">
+      <video id="intro-clip" src="seal.mp4" muted playsinline preload="auto"
+             aria-hidden="true"></video>
+      <svg id="intro-word" viewBox="0 0 100 100" aria-hidden="true"
+           focusable="false">
+        <text x="50" y="50" text-anchor="middle"
+              transform="rotate(-25 50 50) translate(0 -52)">I</text>
+        <text x="50" y="50" text-anchor="middle"
+              transform="rotate(-8.4 50 50) translate(0 -52)">B</text>
+        <text x="50" y="50" text-anchor="middle"
+              transform="rotate(8.4 50 50) translate(0 -52)">E</text>
+        <text x="50" y="50" text-anchor="middle"
+              transform="rotate(25 50 50) translate(0 -52)">W</text>
+      </svg>
+    </div>
     <button type="button" id="intro-skip">Skip</button>
   </div>
   <main class="shell">
@@ -311,41 +364,44 @@ background:transparent;color:#fff;font:inherit;font-weight:700;cursor:pointer}
   <script>
   (() => {
     "use strict";
-    const KEY = "local400-intro-seen";
     const intro = document.getElementById("intro");
     const clip = document.getElementById("intro-clip");
     if (!intro || !clip || !clip.canPlayType) return;
 
     const reduced = window.matchMedia &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let seen = false;
-    try { seen = localStorage.getItem(KEY) === "1"; } catch (_) { seen = false; }
-    if (reduced || seen) return;
+    if (reduced) return;
 
-    let done = false;
-    const dismiss = () => {
-      if (done) return;
-      done = true;
-      try { clip.pause(); } catch (_) {}
-      intro.classList.add("leaving");
+    let settled = false;
+    // The emblem is not removed when the clip ends -- it recedes and stays as
+    // the page's backdrop. Only a clip that never loads is taken away.
+    const settle = () => {
+      if (settled) return;
+      settled = true;
+      intro.classList.remove("playing");
+      intro.classList.add("settled");
       document.documentElement.style.overflow = "";
-      setTimeout(() => { intro.hidden = true; }, 350);
+    };
+    const abandon = () => {
+      settled = true;
+      intro.hidden = true;
+      document.documentElement.style.overflow = "";
     };
 
     intro.hidden = false;
+    intro.classList.add("playing");
     document.documentElement.style.overflow = "hidden";
-    document.getElementById("intro-skip").addEventListener("click", dismiss);
-    intro.addEventListener("click", dismiss);
-    clip.addEventListener("ended", dismiss);
-    clip.addEventListener("error", dismiss);
-    document.addEventListener("keydown", dismiss);
+    document.getElementById("intro-skip").addEventListener("click", settle);
+    intro.addEventListener("click", settle);
+    clip.addEventListener("ended", settle);
+    clip.addEventListener("error", abandon);
+    document.addEventListener("keydown", settle);
     // Nothing keeps a member from the page for more than six seconds, whatever
     // the network or the codec does.
-    setTimeout(dismiss, 6000);
+    setTimeout(settle, 6000);
 
     const started = clip.play();
-    if (started && typeof started.catch === "function") started.catch(dismiss);
-    try { localStorage.setItem(KEY, "1"); } catch (_) {}
+    if (started && typeof started.catch === "function") started.catch(abandon);
   })();
   </script>
 </body>
