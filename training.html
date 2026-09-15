@@ -8,18 +8,77 @@
 <meta name="description" content="Current training courses and reimbursement
 opportunities from the latest accepted membership bulletin.">
 <style>
-:root{--ink:#14161a;--muted:#5b6470;--line:#dfe3e8;--bg:#fbfbfc;
---card:#fff;--accent:#8b1a1a;--warn:#8a5a00;--warn-bg:#fff8e6}
-@media (prefers-color-scheme:dark){:root{--ink:#e9ecef;--muted:#aab2bd;
---line:#343a43;--bg:#14161a;--card:#1c1f25;--accent:#ef5350;
---warn:#f0c060;--warn-bg:#2a2313}}
+
+:root{
+color-scheme:light dark;
+--ink:#12181C;
+--muted:#5F666B;
+--bg:#FFFFFF;
+--card:#F2F0EB;
+--line:#96918A;
+--accent:#0A6E82;
+--accent-ink:#FFFFFF;
+--soft:#DCEAEE;
+--warn:#9E5100;
+--warn-bg:#FDF1E3;
+--open:#1E6B3C;
+--closed:#B3261E;
+--measure:680px;
+}
+@media (prefers-color-scheme:dark){
+:root{
+--ink:#EDEBE4;
+--muted:#A8AFB4;
+--bg:#0E1113;
+--card:#181C1F;
+--line:#626C73;
+--accent:#4FB3C9;
+--accent-ink:#0E1113;
+--soft:#16323A;
+--warn:#FFB347;
+--warn-bg:#2A1E10;
+--open:#6FD39A;
+--closed:#FF9A90;
+}
+}
+
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);
-font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
--webkit-text-size-adjust:100%}
-main{max-width:680px;margin:0 auto;padding:24px 16px 64px}
-h1{font-size:1.5rem;line-height:1.2;margin:0 0 4px}
+html{-webkit-text-size-adjust:100%}
+body{
+margin:0;
+background:var(--bg);
+color:var(--ink);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,
+"Helvetica Neue",Arial,sans-serif;
+font-size:1.0625rem;
+line-height:1.5;
+}
+/* Dates, times and counts line up in columns and stay legible at a glance. */
+time,.day,.num,.tabular{font-variant-numeric:tabular-nums}
+main{max-width:var(--measure);margin:0 auto;padding:20px 16px 64px}
+h1{font-size:1.875rem;line-height:1.15;font-weight:800;margin:0 0 4px;
+letter-spacing:-.01em}
+h2{font-size:1.625rem;line-height:1.2;font-weight:800;margin:32px 0 10px}
+h3{font-size:1.25rem;line-height:1.25;font-weight:700;margin:24px 0 8px}
 .sub{color:var(--muted);margin:0 0 20px}
+a{color:var(--accent)}
+.back{display:inline-flex;align-items:center;min-height:44px;
+color:var(--accent);font-weight:700;text-decoration:none}
+.back:hover{text-decoration:underline}
+footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--line);
+color:var(--muted);font-size:.875rem}
+footer p{margin:0 0 7px}
+/* Focus is a safety feature, not decoration: it stays loud and never matches
+   the surrounding colour, so it is findable with cold or gloved hands. */
+:focus-visible{outline:3px solid var(--warn);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){
+*{animation-duration:.01ms !important;animation-iteration-count:1 !important;
+transition-duration:.01ms !important;scroll-behavior:auto !important}
+}
+@media (min-width:768px){
+body{font-size:1.1875rem}
+}
+
 .warning{background:var(--warn-bg);color:var(--warn);border:1px solid var(--warn);
 border-radius:10px;padding:12px 14px;margin:18px 0}
 .enroll{background:var(--card);border:2px solid var(--accent);border-radius:12px;
@@ -32,8 +91,6 @@ margin:0 0 6px}
 font-weight:700;text-decoration:none;border-radius:8px;padding:11px 15px}
 .email-help{font-size:.82rem;color:var(--muted);margin:10px 0 0;
 overflow-wrap:anywhere}
-h2{font-size:.8rem;text-transform:uppercase;letter-spacing:.09em;
-color:var(--muted);margin:30px 0 10px}
 ul{list-style:none;margin:0;padding:0}
 li{background:var(--card);border:1px solid var(--line);border-radius:10px;
 padding:14px;margin:0 0 9px}
@@ -43,9 +100,6 @@ font-size:.88rem}
 dt{color:var(--muted)}
 dd{margin:0;min-width:0}
 .empty{color:var(--muted);background:transparent}
-.back{display:inline-block;margin-bottom:18px;color:var(--accent);font-weight:700}
-footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--line);
-color:var(--muted);font-size:.82rem}
 </style>
 </head>
 <body>

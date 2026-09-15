@@ -3,226 +3,139 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#071a2d">
+  <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0E1113" media="(prefers-color-scheme: dark)">
   <meta name="description" content="Member-run tools for IBEW Local 400: job alerts, union calendar, current training, benefits and hall news, and a phone-friendly shop steward quick reference.">
   <meta property="og:title" content="Local 400 Member Hub">
   <meta property="og:description" content="Member-run tools for IBEW Local 400: job alerts, union calendar, current training, benefits and hall news, and a phone-friendly shop steward quick reference.">
   <meta property="og:type" content="website">
   <title>IBEW Local 400 &middot; Member Hub</title>
   <style>
-    :root {
-      color-scheme: dark;
-      --navy: #071a2d;
-      --navy-soft: #0d2943;
-      --card: rgba(13, 41, 67, 0.82);
-      --line: rgba(255, 255, 255, 0.13);
-      --ink: #f8fbff;
-      --muted: #b8c7d8;
-      --gold: #ffcc4d;
-      --gold-dark: #17202a;
-      --telegram: #2aabee;
-      --discord: #5865f2;
-      --max: 44rem;
-    }
+:root{
+color-scheme:light dark;
+--ink:#12181C;
+--muted:#5F666B;
+--bg:#FFFFFF;
+--card:#F2F0EB;
+--line:#96918A;
+--accent:#0A6E82;
+--accent-ink:#FFFFFF;
+--soft:#DCEAEE;
+--warn:#9E5100;
+--warn-bg:#FDF1E3;
+--open:#1E6B3C;
+--closed:#B3261E;
+--measure:680px;
+}
+@media (prefers-color-scheme:dark){
+:root{
+--ink:#EDEBE4;
+--muted:#A8AFB4;
+--bg:#0E1113;
+--card:#181C1F;
+--line:#626C73;
+--accent:#4FB3C9;
+--accent-ink:#0E1113;
+--soft:#16323A;
+--warn:#FFB347;
+--warn-bg:#2A1E10;
+--open:#6FD39A;
+--closed:#FF9A90;
+}
+}
 
-    * { box-sizing: border-box; }
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+margin:0;
+background:var(--bg);
+color:var(--ink);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,
+"Helvetica Neue",Arial,sans-serif;
+font-size:1.0625rem;
+line-height:1.5;
+}
+/* Dates, times and counts line up in columns and stay legible at a glance. */
+time,.day,.num,.tabular{font-variant-numeric:tabular-nums}
+main{max-width:var(--measure);margin:0 auto;padding:20px 16px 64px}
+h1{font-size:1.875rem;line-height:1.15;font-weight:800;margin:0 0 4px;
+letter-spacing:-.01em}
+h2{font-size:1.625rem;line-height:1.2;font-weight:800;margin:32px 0 10px}
+h3{font-size:1.25rem;line-height:1.25;font-weight:700;margin:24px 0 8px}
+.sub{color:var(--muted);margin:0 0 20px}
+a{color:var(--accent)}
+.back{display:inline-flex;align-items:center;min-height:44px;
+color:var(--accent);font-weight:700;text-decoration:none}
+.back:hover{text-decoration:underline}
+footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--line);
+color:var(--muted);font-size:.875rem}
+footer p{margin:0 0 7px}
+/* Focus is a safety feature, not decoration: it stays loud and never matches
+   the surrounding colour, so it is findable with cold or gloved hands. */
+:focus-visible{outline:3px solid var(--warn);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){
+*{animation-duration:.01ms !important;animation-iteration-count:1 !important;
+transition-duration:.01ms !important;scroll-behavior:auto !important}
+}
+@media (min-width:768px){
+body{font-size:1.1875rem}
+}
 
-    body {
-      min-height: 100vh;
-      margin: 0;
-      background:
-        radial-gradient(circle at 50% -10%, rgba(42, 171, 238, 0.25), transparent 35rem),
-        linear-gradient(155deg, #061523 0%, var(--navy) 55%, #0a2239 100%);
-      color: var(--ink);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.55;
-    }
+/* Platform brand colours. Not part of the site palette: these identify
+   Discord and Telegram themselves, so the services fix them. Recolouring a
+   button to match the site would make its destination less obvious, and the
+   label colours below are the ones that actually pass on each brand ground
+   (white on Discord is 4.61; Telegram needs the dark label, not white). */
+:root{--discord:#5865f2;--telegram:#2aabee}
 
-    a { color: inherit; }
-
-    .shell {
-      width: min(100% - 2rem, var(--max));
-      margin-inline: auto;
-      padding: 3rem 0 2rem;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin: 0 0 1.25rem;
-      color: var(--gold);
-      font-size: 0.8rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .eyebrow::before {
-      width: 0.55rem;
-      height: 0.55rem;
-      border-radius: 50%;
-      background: var(--gold);
-      box-shadow: 0 0 1rem rgba(255, 204, 77, 0.7);
-      content: "";
-    }
-
-    h1 {
-      max-width: 11ch;
-      margin: 0;
-      font-size: clamp(2.5rem, 11vw, 5.25rem);
-      line-height: 0.96;
-      letter-spacing: -0.055em;
-    }
-
-    .intro {
-      max-width: 37rem;
-      margin: 1.5rem 0 1.75rem;
-      color: var(--muted);
-      font-size: clamp(1.05rem, 4vw, 1.25rem);
-    }
-
-    .primary {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 3.75rem;
-      width: 100%;
-      border-radius: 0.9rem;
-      background: var(--telegram);
-      box-shadow: 0 0.85rem 2rem rgba(0, 0, 0, 0.25);
-      color: #04121e;
-      font-size: 1.05rem;
-      font-weight: 850;
-      text-decoration: none;
-      transition: transform 150ms ease, filter 150ms ease;
-    }
-
-    .primary.calendar { background: var(--gold); color: var(--gold-dark); }
-    .primary.training { background: #9ce3c1; color: var(--gold-dark); }
-    .primary.benefits { background: #f5c58b; color: var(--gold-dark); }
-    .primary.news { background: #a9d6f5; color: var(--gold-dark); }
-    .primary.steward { background: #91e6bd; color: var(--gold-dark); }
-    .primary.discord { background: var(--discord); color: #fff; }
-    .primary.telegram { background: var(--telegram); color: #04121e; }
-    .primary + .primary { margin-top: 0.6rem; }
-
-    .primary:hover { filter: brightness(1.08); transform: translateY(-2px); }
-    .primary:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
-
-    .handle {
-      margin: 0.7rem 0 2.25rem;
-      color: var(--muted);
-      font-size: 0.9rem;
-      text-align: center;
-    }
-
-    .panel {
-      margin-top: 1rem;
-      padding: clamp(1.25rem, 5vw, 2rem);
-      border: 1px solid var(--line);
-      border-radius: 1.2rem;
-      background: var(--card);
-      box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.18);
-      backdrop-filter: blur(12px);
-    }
-
-    h2 {
-      margin: 0 0 1.1rem;
-      font-size: 1.3rem;
-      letter-spacing: -0.02em;
-    }
-
-    ol {
-      display: grid;
-      gap: 1rem;
-      margin: 0;
-      padding: 0;
-      counter-reset: steps;
-      list-style: none;
-    }
-
-    li {
-      display: grid;
-      grid-template-columns: 2rem 1fr;
-      gap: 0.8rem;
-      align-items: start;
-      counter-increment: steps;
-    }
-
-    li::before {
-      display: grid;
-      place-items: center;
-      width: 2rem;
-      height: 2rem;
-      border-radius: 50%;
-      background: var(--gold);
-      color: var(--gold-dark);
-      content: counter(steps);
-      font-weight: 900;
-    }
-
-    li strong { display: block; }
-    li span { color: var(--muted); }
-
-    .store-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem 0.8rem;
-      margin-top: 0.35rem;
-    }
-
-    .store-links a,
-    .command {
-      color: var(--ink);
-      font-weight: 750;
-      text-decoration-color: var(--telegram);
-      text-decoration-thickness: 2px;
-      text-underline-offset: 0.2em;
-    }
-
-    .controls {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.75rem;
-      margin-top: 1rem;
-    }
-
-    .control {
-      padding: 1rem;
-      border: 1px solid var(--line);
-      border-radius: 0.85rem;
-      background: rgba(0, 0, 0, 0.12);
-    }
-
-    .control code {
-      color: var(--gold);
-      font-size: 1rem;
-      font-weight: 850;
-    }
-
-    .control p,
-    .fine-print p { margin: 0.35rem 0 0; color: var(--muted); }
-
-    .fine-print { font-size: 0.9rem; }
-    .fine-print p + p { margin-top: 0.85rem; }
-
-    footer {
-      padding: 1.5rem 0 0;
-      color: #91a6bb;
-      font-size: 0.8rem;
-      text-align: center;
-    }
-
-    @media (max-width: 31rem) {
-      .shell { padding-top: 2rem; }
-      .controls { grid-template-columns: 1fr; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .primary { transition: none; }
-    }
-  </style>
+/* The landing page is the only page here whose job is to convert rather than
+   to inform, so it keeps a display headline -- restrained, not the brochure
+   scale it replaced. */
+.shell{padding-top:2.5rem}
+.eyebrow{margin:0 0 .75rem;color:var(--muted);font-size:1rem}
+h1{max-width:18ch;margin:0;font-size:clamp(2rem,6vw,2.75rem);line-height:1.08;
+letter-spacing:-.02em;text-wrap:balance}
+.intro{max-width:37rem;margin:1.25rem 0 1.75rem;color:var(--muted);
+font-size:clamp(1.05rem,4vw,1.15rem)}
+.primary{display:flex;align-items:center;justify-content:center;min-height:3.5rem;
+width:100%;border-radius:10px;background:var(--accent);color:var(--accent-ink);
+font-size:1.05rem;font-weight:700;text-decoration:none}
+.primary.discord{background:var(--discord);color:#fff}
+.primary.telegram{background:var(--telegram);color:#04121e}
+.primary+.primary{margin-top:.6rem}
+.primary:hover{filter:brightness(1.06)}
+.handle{margin:.7rem 0 2.25rem;color:var(--muted);font-size:.9rem;text-align:center}
+.panel{margin-top:1rem;padding:clamp(1.25rem,5vw,1.75rem);border:1px solid var(--line);
+border-radius:12px;background:var(--card)}
+.panel h2{margin:0 0 1rem;font-size:1.375rem;letter-spacing:-.01em}
+/* A real sequence -- the three Telegram signup steps -- so the numbers carry
+   information instead of decorating. */
+ol{display:grid;gap:1rem;margin:0;padding:0;counter-reset:steps;list-style:none}
+ol li{display:grid;grid-template-columns:2rem 1fr;gap:.8rem;align-items:start;
+counter-increment:steps}
+ol li::before{display:grid;place-items:center;width:2rem;height:2rem;
+border-radius:50%;background:var(--accent);color:var(--accent-ink);
+content:counter(steps);font-weight:700;font-variant-numeric:tabular-nums}
+li strong{display:block}
+li span{color:var(--muted)}
+.store-links{display:flex;flex-wrap:wrap;gap:.45rem .8rem;margin-top:.35rem}
+.store-links a,.command{color:var(--ink);font-weight:700;
+text-decoration-color:var(--accent);text-decoration-thickness:2px;
+text-underline-offset:.2em}
+.controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;
+margin-top:1rem}
+.control{padding:1rem;border:1px solid var(--line);border-radius:10px;
+background:var(--soft)}
+.control code{color:var(--ink);font-size:1rem;font-weight:700}
+.control p,.fine-print p{margin:.35rem 0 0;color:var(--muted)}
+.fine-print{font-size:.9rem}
+.fine-print p+p{margin-top:.85rem}
+footer{margin-top:2rem;text-align:center}
+@media (max-width:31rem){
+.shell{padding-top:2rem}
+.controls{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
   <main class="shell">

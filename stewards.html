@@ -3,48 +3,93 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#071a2d">
+  <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0E1113" media="(prefers-color-scheme: dark)">
   <meta name="description" content="A phone-friendly IBEW Local 400 shop steward quick reference: key contract rights, first-day checks, safety help and official tools.">
   <meta property="og:title" content="Local 400 Shop Steward Quick Reference">
   <meta property="og:description" content="Plain-language steward rights, jobsite checks and official Local 400, IBEW and government resources.">
   <meta property="og:type" content="website">
   <title>Shop Steward Quick Reference | Local 400 Member Hub</title>
   <style>
-    :root {
-      color-scheme: dark;
-      --navy: #071a2d;
-      --panel: #0d2943;
-      --ink: #f8fbff;
-      --muted: #c5d2df;
-      --line: rgba(255, 255, 255, 0.17);
-      --gold: #ffcc4d;
-      --gold-ink: #17202a;
-      --blue: #71cfff;
-      --green: #91e6bd;
-      --red: #ffb3b3;
-      --max: 68rem;
-    }
 
-    * { box-sizing: border-box; }
+:root{
+color-scheme:light dark;
+--ink:#12181C;
+--muted:#5F666B;
+--bg:#FFFFFF;
+--card:#F2F0EB;
+--line:#96918A;
+--accent:#0A6E82;
+--accent-ink:#FFFFFF;
+--soft:#DCEAEE;
+--warn:#9E5100;
+--warn-bg:#FDF1E3;
+--open:#1E6B3C;
+--closed:#B3261E;
+--measure:680px;
+}
+@media (prefers-color-scheme:dark){
+:root{
+--ink:#EDEBE4;
+--muted:#A8AFB4;
+--bg:#0E1113;
+--card:#181C1F;
+--line:#626C73;
+--accent:#4FB3C9;
+--accent-ink:#0E1113;
+--soft:#16323A;
+--warn:#FFB347;
+--warn-bg:#2A1E10;
+--open:#6FD39A;
+--closed:#FF9A90;
+}
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+margin:0;
+background:var(--bg);
+color:var(--ink);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,
+"Helvetica Neue",Arial,sans-serif;
+font-size:1.0625rem;
+line-height:1.5;
+}
+/* Dates, times and counts line up in columns and stay legible at a glance. */
+time,.day,.num,.tabular{font-variant-numeric:tabular-nums}
+main{max-width:var(--measure);margin:0 auto;padding:20px 16px 64px}
+h1{font-size:1.875rem;line-height:1.15;font-weight:800;margin:0 0 4px;
+letter-spacing:-.01em}
+h2{font-size:1.625rem;line-height:1.2;font-weight:800;margin:32px 0 10px}
+h3{font-size:1.25rem;line-height:1.25;font-weight:700;margin:24px 0 8px}
+.sub{color:var(--muted);margin:0 0 20px}
+a{color:var(--accent)}
+.back{display:inline-flex;align-items:center;min-height:44px;
+color:var(--accent);font-weight:700;text-decoration:none}
+.back:hover{text-decoration:underline}
+footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--line);
+color:var(--muted);font-size:.875rem}
+footer p{margin:0 0 7px}
+/* Focus is a safety feature, not decoration: it stays loud and never matches
+   the surrounding colour, so it is findable with cold or gloved hands. */
+:focus-visible{outline:3px solid var(--warn);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){
+*{animation-duration:.01ms !important;animation-iteration-count:1 !important;
+transition-duration:.01ms !important;scroll-behavior:auto !important}
+}
+@media (min-width:768px){
+body{font-size:1.1875rem}
+}
+
+    /* This page is a dense multi-column steward reference, not running prose,
+       so it keeps its original wider container instead of the foundation's
+       680px prose measure. */
+    main { max-width: 68rem; }
+
     html { scroll-behavior: smooth; }
-    body {
-      min-height: 100vh;
-      margin: 0;
-      background:
-        radial-gradient(circle at 50% -12%, rgba(42, 171, 238, 0.23), transparent 35rem),
-        linear-gradient(155deg, #061523 0%, var(--navy) 56%, #0a2239 100%);
-      color: var(--ink);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.52;
-    }
-    a { color: var(--blue); text-decoration-thickness: 0.1em; text-underline-offset: 0.18em; }
-    a:hover { color: #d3f1ff; }
-    a:focus-visible, summary:focus-visible {
-      border-radius: 0.25rem;
-      outline: 3px solid var(--gold);
-      outline-offset: 4px;
-    }
-    .shell { width: min(100% - 2rem, var(--max)); margin-inline: auto; }
+    a { text-decoration-thickness: 0.1em; text-underline-offset: 0.18em; }
+    .shell { width: min(100% - 2rem, 68rem); margin-inline: auto; }
     .skip {
       position: fixed;
       z-index: 20;
@@ -52,8 +97,8 @@
       left: 0.5rem;
       padding: 0.65rem 0.9rem;
       border-radius: 0.55rem;
-      background: var(--gold);
-      color: var(--gold-ink);
+      background: var(--accent);
+      color: var(--accent-ink);
       font-weight: 900;
       transform: translateY(-150%);
     }
@@ -67,22 +112,19 @@
       justify-content: space-between;
       margin-bottom: clamp(2rem, 7vw, 4rem);
     }
-    .back { color: var(--ink); font-weight: 850; text-decoration: none; }
-    .reviewed { margin: 0; color: var(--muted); font-size: 0.82rem; }
+    .reviewed { margin: 0; color: var(--muted); font-size: 0.875rem; }
     .eyebrow {
       margin: 0 0 0.75rem;
-      color: var(--gold);
-      font-size: 0.78rem;
-      font-weight: 900;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
+      color: var(--muted);
+      font-size: 0.9375rem;
+      font-weight: 500;
     }
     h1 {
       max-width: 14ch;
       margin: 0;
-      font-size: clamp(2.55rem, 9vw, 5.1rem);
-      line-height: 0.98;
-      letter-spacing: -0.055em;
+      font-size: clamp(1.875rem, 5vw, 2.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
     }
     .lede {
       max-width: 46rem;
@@ -99,48 +141,48 @@
       border-radius: 0.7rem;
       align-items: center;
       justify-content: center;
-      background: var(--panel);
+      background: var(--card);
       color: var(--ink);
       font-weight: 850;
       text-align: center;
       text-decoration: none;
     }
-    .button.primary { border-color: transparent; background: var(--gold); color: var(--gold-ink); }
+    .button.primary { border-color: transparent; background: var(--accent); color: var(--accent-ink); }
     .emergency, .answer, .boundary, .source-note {
       margin-top: 1rem;
       padding: 1rem 1.05rem;
       border-radius: 0.82rem;
     }
     .emergency {
-      border: 1px solid rgba(255, 179, 179, 0.48);
-      border-left: 0.36rem solid var(--red);
-      background: rgba(255, 179, 179, 0.08);
+      border: 1px solid var(--closed);
+      border-left: 0.36rem solid var(--closed);
+      background: var(--card);
     }
     .answer {
-      border: 1px solid rgba(255, 204, 77, 0.48);
-      border-left: 0.36rem solid var(--gold);
-      background: rgba(255, 204, 77, 0.08);
+      border: 1px solid var(--accent);
+      border-left: 0.36rem solid var(--accent);
+      background: var(--card);
     }
     .boundary {
-      border: 1px solid rgba(145, 230, 189, 0.44);
-      border-left: 0.36rem solid var(--green);
-      background: rgba(145, 230, 189, 0.07);
+      border: 1px solid var(--open);
+      border-left: 0.36rem solid var(--open);
+      background: var(--card);
     }
     .source-note {
       border: 1px solid var(--line);
-      background: rgba(0, 0, 0, 0.13);
+      background: var(--card);
       color: var(--muted);
       font-size: 0.9rem;
     }
     .emergency p, .answer p, .boundary p, .source-note p { margin: 0; }
     .emergency p + p, .answer p + p, .boundary p + p, .source-note p + p { margin-top: 0.55rem; }
-    .emergency strong { color: var(--red); }
-    .answer strong { color: var(--gold); }
-    .boundary strong { color: var(--green); }
+    .emergency strong { color: var(--closed); }
+    .answer strong { color: var(--accent); }
+    .boundary strong { color: var(--open); }
     .yes {
       display: inline-block;
       margin-right: 0.25rem;
-      color: var(--gold);
+      color: var(--accent);
       font-size: 1.32rem;
       font-weight: 950;
     }
@@ -160,7 +202,7 @@
       border-radius: 0.68rem;
       align-items: center;
       justify-content: center;
-      background: rgba(13, 41, 67, 0.78);
+      background: var(--card);
       color: var(--ink);
       font-size: 0.88rem;
       font-weight: 850;
@@ -174,8 +216,7 @@
       padding: clamp(1.15rem, 4vw, 1.8rem);
       border: 1px solid var(--line);
       border-radius: 1rem;
-      background: rgba(13, 41, 67, 0.91);
-      box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15);
+      background: var(--card);
     }
     h2 { margin: 0 0 0.42rem; font-size: clamp(1.5rem, 5vw, 2.05rem); letter-spacing: -0.035em; }
     h3 { margin: 0 0 0.4rem; font-size: 1.06rem; line-height: 1.28; }
@@ -185,7 +226,7 @@
     .card, .resource, details {
       border: 1px solid var(--line);
       border-radius: 0.76rem;
-      background: rgba(0, 0, 0, 0.13);
+      background: var(--bg);
     }
     .card, .resource { padding: 0.92rem; }
     .card p, .resource p { margin: 0; color: var(--muted); }
@@ -198,15 +239,21 @@
       padding: 0.18rem 0.46rem;
       border: 1px solid var(--line);
       border-radius: 999px;
-      color: var(--green);
-      font-size: 0.7rem;
-      font-weight: 900;
-      letter-spacing: 0.06em;
+      color: var(--muted);
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
     }
-    .tag.local { color: var(--gold); }
-    .tag.right { color: var(--blue); }
-    .tag.urgent { color: var(--red); }
+    /* Four hues so a steward can scan these at a glance, each meaning what it
+       looks like: grey cites the contract, teal points at the Local, green is
+       a right you hold, red is the one that needs acting on now. Only
+       "urgent" is a status, so only it wears a status colour -- an amber
+       "OSHA" tag beside a red "Hazard or injury" tag reads as a second
+       severity level that does not exist. */
+    .tag.local { color: var(--accent); }
+    .tag.right { color: var(--open); }
+    .tag.urgent { color: var(--closed); }
     .resource a { display: inline-block; margin-top: 0.58rem; font-weight: 850; }
     dl.terms {
       display: grid;
@@ -214,17 +261,15 @@
       gap: 0.62rem;
       margin: 0;
     }
-    .term { padding: 0.78rem; border: 1px solid var(--line); border-radius: 0.7rem; background: rgba(0, 0, 0, 0.13); }
-    dt { color: var(--gold); font-weight: 900; }
+    .term { padding: 0.78rem; border: 1px solid var(--line); border-radius: 0.7rem; background: var(--bg); }
+    dt { color: var(--accent); font-weight: 900; }
     dd { margin: 0.12rem 0 0; color: var(--muted); }
     .steps { margin: 0.65rem 0 0; padding-left: 1.3rem; }
     .section-label {
       margin: 1.15rem 0 0.62rem;
-      color: var(--gold);
-      font-size: 0.79rem;
-      font-weight: 900;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 700;
     }
     details + details { margin-top: 0.62rem; }
     summary { min-height: 3.1rem; padding: 0.78rem 0.92rem; cursor: pointer; font-weight: 850; }
@@ -232,7 +277,7 @@
     .detail p { margin: 0.42rem 0; }
     .detail ul { margin: 0.48rem 0 0; padding-left: 1.2rem; }
     .tool-list { columns: 2 17rem; }
-    footer { padding: 1.3rem 0 5.8rem; color: #a7b8c9; font-size: 0.84rem; text-align: center; }
+    footer { padding: 1.3rem 0 5.8rem; text-align: center; }
     .dock {
       position: fixed;
       z-index: 10;
@@ -244,7 +289,7 @@
       gap: 0.42rem;
       padding: 0.56rem max(0.56rem, env(safe-area-inset-right)) calc(0.56rem + env(safe-area-inset-bottom)) max(0.56rem, env(safe-area-inset-left));
       border-top: 1px solid var(--line);
-      background: rgba(7, 26, 45, 0.97);
+      background: var(--card);
       box-shadow: 0 -0.6rem 1.5rem rgba(0, 0, 0, 0.3);
     }
     .dock a {
@@ -256,13 +301,13 @@
       align-items: center;
       justify-content: center;
       color: var(--ink);
-      font-size: 0.8rem;
-      font-weight: 850;
+      font-size: 0.875rem;
+      font-weight: 700;
       line-height: 1.15;
       text-align: center;
       text-decoration: none;
     }
-    .dock a:first-child { border-color: transparent; background: var(--gold); color: var(--gold-ink); }
+    .dock a:first-child { border-color: transparent; background: var(--accent); color: var(--accent-ink); }
     @media (max-width: 48rem) {
       .quick-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       dl.terms, .grid.three { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -274,7 +319,6 @@
       .button { width: 100%; }
       .tool-list { columns: 1; }
     }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
     @media print {
       :root { color-scheme: light; }
       body { background: #fff; color: #111; font-size: 8.8pt; line-height: 1.32; }
