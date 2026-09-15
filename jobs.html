@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0E1113" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="Join the IBEW Local 400 open-jobs bulletin on Discord or Telegram. What posts where, how to sign up, and how to stop at any time.">
+  <meta property="og:title" content="Local 400 job calls">
+  <meta property="og:description" content="Join the IBEW Local 400 open-jobs bulletin on Discord or Telegram. What posts where, how to sign up, and how to stop at any time.">
+  <meta property="og:type" content="website">
+  <title>IBEW Local 400 &middot; Job calls</title>
+  <style>
+/* BEGIN design.py FOUNDATION -- generated, do not edit here */
+:root{
+color-scheme:light dark;
+--ink:#12181C;
+--muted:#5F666B;
+--bg:#FFFFFF;
+--card:#F2F0EB;
+--line:#96918A;
+--accent:#0A6E82;
+--accent-ink:#FFFFFF;
+--soft:#DCEAEE;
+--warn:#9E5100;
+--warn-bg:#FDF1E3;
+--open:#1E6B3C;
+--closed:#B3261E;
+--panel:#E9E5DC;
+--copper:#8A5024;
+--measure:680px;
+}
+@media (prefers-color-scheme:dark){
+:root{
+--ink:#EDEBE4;
+--muted:#A8AFB4;
+--bg:#0E1113;
+--card:#181C1F;
+--line:#626C73;
+--accent:#4FB3C9;
+--accent-ink:#0E1113;
+--soft:#16323A;
+--warn:#FFB347;
+--warn-bg:#2A1E10;
+--open:#6FD39A;
+--closed:#FF9A90;
+--panel:#202629;
+--copper:#D9A064;
+}
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+margin:0;
+background:var(--bg);
+color:var(--ink);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,
+"Helvetica Neue",Arial,sans-serif;
+font-size:1.0625rem;
+line-height:1.5;
+}
+/* Dates, times and counts line up in columns and stay legible at a glance. */
+time,.day,.num,.tabular{font-variant-numeric:tabular-nums}
+main{max-width:var(--measure);margin:0 auto;padding:20px 16px 64px}
+h1{font-size:1.875rem;line-height:1.15;font-weight:800;margin:0 0 4px;
+letter-spacing:-.01em}
+h2{font-size:1.625rem;line-height:1.2;font-weight:800;margin:32px 0 10px}
+h3{font-size:1.25rem;line-height:1.25;font-weight:700;margin:24px 0 8px}
+.sub{color:var(--muted);margin:0 0 20px}
+a{color:var(--accent)}
+.back{display:inline-flex;align-items:center;min-height:44px;
+color:var(--accent);font-weight:700;text-decoration:none}
+.back:hover{text-decoration:underline}
+footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--line);
+color:var(--muted);font-size:.875rem}
+footer p{margin:0 0 7px}
+/* Focus is a safety feature, not decoration: it stays loud and never matches
+   the surrounding colour, so it is findable with cold or gloved hands. */
+:focus-visible{outline:3px solid var(--warn);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){
+*{animation-duration:.01ms !important;animation-iteration-count:1 !important;
+transition-duration:.01ms !important;scroll-behavior:auto !important}
+}
+@media (min-width:768px){
+body{font-size:1.1875rem}
+}
+
+.skip{position:absolute;left:-9999px}
+.skip:focus{position:static;display:block;padding:12px 16px;
+background:var(--warn-bg);color:var(--ink);font-weight:700;text-align:center}
+.masthead{background:var(--panel)}
+.masthead-in{max-width:var(--measure);margin:0 auto;padding:4px 16px;
+display:flex;align-items:center;gap:9px}
+.brand{display:inline-flex;align-items:center;gap:9px;min-height:40px;
+color:var(--ink);text-decoration:none;font-weight:800;font-size:1.0625rem;
+letter-spacing:.005em}
+.brand-mark{width:13px;height:17px;flex:none;fill:var(--copper)}
+.ckt-id{margin-left:auto;font-variant-numeric:tabular-nums;font-size:.75rem;
+font-weight:700;letter-spacing:.09em;color:var(--muted);white-space:nowrap}
+/* The bus. The bar itself is ALWAYS fully drawn; what animates is a bright
+   pass travelling along it, carried on a pseudo-element.
+   The first version animated the bar's own clip-path, which meant the page at
+   rest -- before the animation starts, and in any thumbnail or slow first
+   paint -- showed a bus bar about twelve pixels long and apparently broken.
+   Sweeping a highlight down a bar that is already there is also the more
+   honest picture: the bus exists, and what arrives is the current.
+   The highlight is a white overlay rather than a second colour token because
+   it has to lighten copper in both schemes and it never carries text. */
+.bus{position:relative;height:4px;background-color:var(--copper);overflow:hidden}
+.bus::after{content:"";position:absolute;inset:0;
+background:linear-gradient(90deg,
+rgba(255,255,255,0),rgba(255,255,255,.75) 50%,rgba(255,255,255,0))}
+@keyframes energize{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+@media (prefers-reduced-motion:no-preference){
+.bus::after{animation:energize 900ms cubic-bezier(.3,0,.2,1) both}
+}
+/* The strip WRAPS rather than scrolls. Scrolling it hid whichever breaker was
+   furthest right, and on the pages whose own circuit sat there -- News and the
+   steward guide -- a member arrived at a navigation in which nothing was
+   marked as current, which reads as a bug rather than as a scroll. Two rows on
+   a phone costs about fifty pixels and is worth it to never hide the member's
+   own position. */
+.bkr-strip{background:var(--panel);border-bottom:1px solid var(--line)}
+.bkr-row{max-width:var(--measure);margin:0 auto;padding:6px 16px 7px;
+display:flex;flex-wrap:wrap;gap:6px}
+.bkr{flex:none;display:flex;flex-direction:column;justify-content:center;
+min-height:42px;padding:3px 11px;border:1px solid var(--line);
+border-left:3px solid var(--line);border-radius:3px;background:var(--bg);
+color:var(--ink);text-decoration:none;
+transition:border-color 120ms steps(2,end),
+background-color 120ms steps(2,end),transform 90ms linear}
+.bkr-num{font-size:.6875rem;font-weight:700;letter-spacing:.1em;
+line-height:1.1;color:var(--muted);font-variant-numeric:tabular-nums}
+.bkr-name{font-size:.9375rem;font-weight:700;line-height:1.2;white-space:nowrap}
+.bkr:hover{border-color:var(--copper)}
+/* A breaker throws: it moves once, a short way, and stops. */
+.bkr:active{transform:translateY(1px)}
+.bkr[aria-current="page"]{background:var(--soft);border-left-color:var(--copper)}
+.bkr[aria-current="page"] .bkr-num{color:var(--copper)}
+.schedule{border:1px solid var(--line);border-radius:4px;overflow:hidden;
+margin:26px 0}
+.sch-head{display:flex;align-items:center;gap:12px;padding:9px 14px;
+background:var(--panel);border-bottom:1px solid var(--line);
+font-size:.6875rem;font-weight:700;letter-spacing:.11em;color:var(--muted)}
+.sch-head .h-num{flex:none;width:2.6em}
+.sch-head .h-state{margin-left:auto}
+.sch-row{display:flex;align-items:center;gap:12px;padding:11px 14px;
+min-height:56px;background:var(--bg);color:var(--ink);text-decoration:none;
+border-bottom:1px solid var(--line)}
+.sch-row:last-child{border-bottom:0}
+.sch-row:hover{background:var(--soft)}
+.sch-num{flex:none;width:2.6em;font-weight:700;color:var(--copper);
+font-variant-numeric:tabular-nums}
+.sch-load{min-width:0}
+.sch-name{display:block;font-weight:700}
+.sch-desc{display:block;color:var(--muted);font-size:.875rem;line-height:1.35}
+.sch-state{margin-left:auto;flex:none;display:inline-flex;align-items:center;
+gap:6px;font-size:.6875rem;font-weight:700;letter-spacing:.09em;
+color:var(--muted)}
+.sch-row.is-live .sch-state{color:var(--open)}
+.dot{width:9px;height:9px;border-radius:50%;border:2px solid currentColor}
+.is-live .dot{background:currentColor}
+@keyframes throwrow{from{opacity:0;transform:translateX(-7px)}
+to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:no-preference){
+.schedule .sch-row{animation:throwrow 260ms cubic-bezier(.2,0,.1,1) both;
+animation-delay:var(--d,0ms)}
+}
+/* END design.py FOUNDATION */
+
+/* BEGIN design.py LANDING_KIT -- generated, do not edit here */
+/* Platform brand colours. Not part of the site palette: these identify
+   Discord and Telegram themselves, so the services fix them. Recolouring a
+   button to match the site would make its destination less obvious, and the
+   label colours below are the ones that actually pass on each brand ground
+   (white on Discord is 4.61; Telegram needs the dark label, not white). */
+:root{--discord:#5865f2;--telegram:#2aabee}
+/* These two pages convert rather than inform, so they keep a display
+   headline -- restrained, not the brochure scale it replaced. */
+.shell{padding-top:2.5rem}
+.eyebrow{margin:0 0 .75rem;color:var(--muted);font-size:1rem}
+h1{max-width:18ch;margin:0;font-size:clamp(2rem,6vw,2.75rem);line-height:1.08;
+letter-spacing:-.02em;text-wrap:balance}
+.intro{max-width:37rem;margin:1.25rem 0 1.75rem;color:var(--muted);
+font-size:clamp(1.05rem,4vw,1.15rem)}
+.primary{display:flex;align-items:center;justify-content:center;min-height:3.5rem;
+width:100%;border-radius:10px;background:var(--accent);color:var(--accent-ink);
+font-size:1.05rem;font-weight:700;text-decoration:none}
+.primary.discord{background:var(--discord);color:#fff}
+.primary.telegram{background:var(--telegram);color:#04121e}
+.primary+.primary{margin-top:.6rem}
+.primary:hover{filter:brightness(1.06)}
+.handle{margin:.7rem 0 2.25rem;color:var(--muted);font-size:.9rem;text-align:center}
+.panel{margin-top:1rem;padding:clamp(1.25rem,5vw,1.75rem);border:1px solid var(--line);
+border-radius:12px;background:var(--card)}
+.panel h2{margin:0 0 1rem;font-size:1.375rem;letter-spacing:-.01em}
+/* A real sequence -- the three Telegram signup steps -- so the numbers carry
+   information instead of decorating. */
+ol{display:grid;gap:1rem;margin:0;padding:0;counter-reset:steps;list-style:none}
+ol li{display:grid;grid-template-columns:2rem 1fr;gap:.8rem;align-items:start;
+counter-increment:steps}
+ol li::before{display:grid;place-items:center;width:2rem;height:2rem;
+border-radius:50%;background:var(--accent);color:var(--accent-ink);
+content:counter(steps);font-weight:700;font-variant-numeric:tabular-nums}
+li strong{display:block}
+li span{color:var(--muted)}
+.store-links{display:flex;flex-wrap:wrap;gap:.45rem .8rem;margin-top:.35rem}
+.store-links a,.command{color:var(--ink);font-weight:700;
+text-decoration-color:var(--accent);text-decoration-thickness:2px;
+text-underline-offset:.2em}
+.controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;
+margin-top:1rem}
+.control{padding:1rem;border:1px solid var(--line);border-radius:10px;
+background:var(--soft)}
+.control code{color:var(--ink);font-size:1rem;font-weight:700}
+.control p,.fine-print p{margin:.35rem 0 0;color:var(--muted)}
+/* Full-bleed: the band breaks the measure deliberately, because a photograph
+   confined to a 680px column reads as an illustration dropped into an article
+   rather than as part of the page. The copper rules top and bottom tie it to
+   the bus bar in the chrome. */
+.band{position:relative;margin:2rem calc(50% - 50vw) 0;width:100vw;
+border-top:3px solid var(--copper);border-bottom:3px solid var(--copper);
+background:#05070a;line-height:0}
+.band img{width:100%;height:clamp(120px,30vw,190px);object-fit:cover;
+object-position:center}
+.fine-print{font-size:.9rem}
+.fine-print p+p{margin-top:.85rem}
+footer{margin-top:2rem;text-align:center}
+@media (max-width:31rem){
+.shell{padding-top:2rem}
+.controls{grid-template-columns:1fr}
+}
+/* END design.py LANDING_KIT */
+</style>
+</head>
+<body>
+<!-- BEGIN design.py chrome -- generated, do not edit here -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead"><div class="masthead-in"><a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 12 16" aria-hidden="true" focusable="false"><path d="M7.4 0 1 9.3h3.6L3.8 16 11 6.3H6.9L9.2 0z"/></svg><span>L.U. 400 Hub</span></a><span class="ckt-id">CKT 01</span></div></header>
+<div class="bus" aria-hidden="true"></div>
+<nav class="bkr-strip" aria-label="Member pages"><div class="bkr-row"><a class="bkr" href="jobs.html" aria-current="page"><span class="bkr-num">01</span><span class="bkr-name">Job calls</span></a><a class="bkr" href="calendar.html"><span class="bkr-num">03</span><span class="bkr-name">Calendar</span></a><a class="bkr" href="training.html"><span class="bkr-num">05</span><span class="bkr-name">Training</span></a><a class="bkr" href="benefits.html"><span class="bkr-num">07</span><span class="bkr-name">Benefits</span></a><a class="bkr" href="news.html"><span class="bkr-num">09</span><span class="bkr-name">News</span></a><a class="bkr" href="stewards.html"><span class="bkr-num">11</span><span class="bkr-name">Steward guide</span></a></div></nav>
+<!-- END design.py chrome -->
+  <main class="shell" id="main">
+    <p class="eyebrow">Free for Local 400 members</p>
+    <h1>See new job calls when they post.</h1>
+    <p class="intro">
+      Keep forgetting to log in and check the day&rsquo;s job postings? Join once
+      and the Local 400 open-jobs bulletin comes to you&mdash;on Discord or
+      Telegram, whichever you already use. Same bulletin, same time.
+    </p>
+
+    <a class="primary discord" href="https://discord.gg/qDhUqGzYpG" rel="noopener noreferrer">
+      Join Local 400 Connect on Discord
+    </a>
+    <a class="primary telegram" href="https://t.me/IbewjobsBot?start=subscribe" rel="noopener noreferrer">
+      Or open IbewjobsBot in Telegram
+    </a>
+    <p class="handle">Discord: Local 400 Connect &middot; Telegram bot: @IbewjobsBot</p>
+
+    <section class="panel" aria-labelledby="discord-heading">
+      <h2 id="discord-heading">What is on Discord</h2>
+      <p style="margin:0;color:var(--muted)">
+        Job calls post to <strong>#job-alerts</strong>, current courses stay in
+        <strong>#training</strong>, and meeting and holiday notices post to
+        <strong>#calendar-reminders</strong>. It is a place members can talk to
+        each other too, which a one-way bot is not. Free, works on your phone
+        or in a browser, no app required.
+      </p>
+    </section>
+
+    <section class="panel" aria-labelledby="join-heading">
+      <h2 id="join-heading">How to join on Telegram</h2>
+      <ol>
+        <li>
+          <div>
+            <strong>Install Telegram if you need it.</strong>
+            <span class="store-links">
+              <a href="https://apps.apple.com/app/telegram-messenger/id686449807" rel="noopener noreferrer">iPhone / iPad</a>
+              <a href="https://play.google.com/store/apps/details?id=org.telegram.messenger" rel="noopener noreferrer">Android</a>
+            </span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Tap “Open IbewjobsBot” above.</strong>
+            <span>Telegram will open the shared public bot. No personal invitation is needed.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Press Start in Telegram.</strong>
+            <span>The bot confirms when notifications are turned on.</span>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="panel" aria-labelledby="control-heading">
+      <h2 id="control-heading">You stay in control</h2>
+      <div class="controls">
+        <div class="control">
+          <code>/status</code>
+          <p>Check whether your alerts are on.</p>
+        </div>
+        <div class="control">
+          <code>/stop</code>
+          <p>Turn alerts off immediately.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel fine-print" aria-labelledby="privacy-heading">
+      <h2 id="privacy-heading">Simple and private</h2>
+      <p>
+        You never share your Working Systems login. The service keeps only
+        where to send your alerts &mdash; a Discord channel or a Telegram
+        chat &mdash; along with subscription state and the delivery records
+        needed to send and troubleshoot them.
+      </p>
+      <p>
+        This service sends convenience notifications only. It does not submit
+        bids, change your union account, guarantee delivery, or replace the
+        official job board and union office as the authoritative source.
+      </p>
+    </section>
+
+    <footer>No ads. No tracking scripts. Unsubscribe anytime with /stop.<br>
+      Unofficial, member-run. Not the official Local 400 job board or union office.</footer>
+  </main>
+</body>
+</html>

@@ -169,16 +169,15 @@ animation-delay:var(--d,0ms)}
 }
 /* END design.py FOUNDATION */
 
+/* BEGIN design.py LANDING_KIT -- generated, do not edit here */
 /* Platform brand colours. Not part of the site palette: these identify
    Discord and Telegram themselves, so the services fix them. Recolouring a
    button to match the site would make its destination less obvious, and the
    label colours below are the ones that actually pass on each brand ground
    (white on Discord is 4.61; Telegram needs the dark label, not white). */
 :root{--discord:#5865f2;--telegram:#2aabee}
-
-/* The landing page is the only page here whose job is to convert rather than
-   to inform, so it keeps a display headline -- restrained, not the brochure
-   scale it replaced. */
+/* These two pages convert rather than inform, so they keep a display
+   headline -- restrained, not the brochure scale it replaced. */
 .shell{padding-top:2.5rem}
 .eyebrow{margin:0 0 .75rem;color:var(--muted);font-size:1rem}
 h1{max-width:18ch;margin:0;font-size:clamp(2rem,6vw,2.75rem);line-height:1.08;
@@ -232,6 +231,7 @@ footer{margin-top:2rem;text-align:center}
 .shell{padding-top:2rem}
 .controls{grid-template-columns:1fr}
 }
+/* END design.py LANDING_KIT */
 
 /* Arrival animation, then the emblem stays.
 
@@ -331,17 +331,17 @@ transition:opacity .4s ease}
   </div>
 <!-- BEGIN design.py chrome -- generated, do not edit here -->
 <a class="skip" href="#main">Skip to content</a>
-<header class="masthead"><div class="masthead-in"><a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 12 16" aria-hidden="true" focusable="false"><path d="M7.4 0 1 9.3h3.6L3.8 16 11 6.3H6.9L9.2 0z"/></svg><span>L.U. 400 Hub</span></a><span class="ckt-id">CKT 01</span></div></header>
+<header class="masthead"><div class="masthead-in"><a class="brand" href="index.html" aria-current="page"><svg class="brand-mark" viewBox="0 0 12 16" aria-hidden="true" focusable="false"><path d="M7.4 0 1 9.3h3.6L3.8 16 11 6.3H6.9L9.2 0z"/></svg><span>L.U. 400 Hub</span></a><span class="ckt-id">MAIN</span></div></header>
 <div class="bus" aria-hidden="true"></div>
-<nav class="bkr-strip" aria-label="Member pages"><div class="bkr-row"><a class="bkr" href="index.html" aria-current="page"><span class="bkr-num">01</span><span class="bkr-name">Job calls</span></a><a class="bkr" href="calendar.html"><span class="bkr-num">03</span><span class="bkr-name">Calendar</span></a><a class="bkr" href="training.html"><span class="bkr-num">05</span><span class="bkr-name">Training</span></a><a class="bkr" href="benefits.html"><span class="bkr-num">07</span><span class="bkr-name">Benefits</span></a><a class="bkr" href="news.html"><span class="bkr-num">09</span><span class="bkr-name">News</span></a><a class="bkr" href="stewards.html"><span class="bkr-num">11</span><span class="bkr-name">Steward guide</span></a></div></nav>
+<nav class="bkr-strip" aria-label="Member pages"><div class="bkr-row"><a class="bkr" href="jobs.html"><span class="bkr-num">01</span><span class="bkr-name">Job calls</span></a><a class="bkr" href="calendar.html"><span class="bkr-num">03</span><span class="bkr-name">Calendar</span></a><a class="bkr" href="training.html"><span class="bkr-num">05</span><span class="bkr-name">Training</span></a><a class="bkr" href="benefits.html"><span class="bkr-num">07</span><span class="bkr-name">Benefits</span></a><a class="bkr" href="news.html"><span class="bkr-num">09</span><span class="bkr-name">News</span></a><a class="bkr" href="stewards.html"><span class="bkr-num">11</span><span class="bkr-name">Steward guide</span></a></div></nav>
 <!-- END design.py chrome -->
   <main class="shell" id="main">
     <p class="eyebrow">Free for Local 400 members</p>
-    <h1>See new job calls when they post.</h1>
+    <h1>Everything Local 400, on your phone.</h1>
     <p class="intro">
-      Keep forgetting to log in and check the day&rsquo;s job postings? Join once
-      and the Local 400 open-jobs bulletin comes to you&mdash;on Discord or
-      Telegram, whichever you already use. Same bulletin, same time.
+      Job calls, the union calendar, training, benefits and news from the
+      hall&mdash;kept in one place by members, for members. Start with the
+      job-call bulletin: join once and it comes to you.
     </p>
 
     <a class="primary discord" href="https://discord.gg/qDhUqGzYpG" rel="noopener noreferrer">
@@ -384,74 +384,7 @@ transition:opacity .4s ease}
         LIVE means the page keeps itself current from the hall&rsquo;s own
         announcements, so you do not have to come back and check it.
       </p>
-      <div class="schedule"><div class="sch-head"><span class="h-num">CKT</span><span>LOAD</span><span class="h-state">STATUS</span></div><a class="sch-row is-live" href="calendar.html" style="--d:45ms"><span class="sch-num">03</span><span class="sch-load"><span class="sch-name">Calendar</span><span class="sch-desc">Meetings, holidays and hall events — subscribe once</span></span><span class="sch-state"><span class="dot"></span>LIVE</span></a><a class="sch-row is-live" href="training.html" style="--d:90ms"><span class="sch-num">05</span><span class="sch-load"><span class="sch-name">Training</span><span class="sch-desc">Courses and reimbursements from the latest bulletin</span></span><span class="sch-state"><span class="dot"></span>LIVE</span></a><a class="sch-row is-live" href="benefits.html" style="--d:135ms"><span class="sch-num">07</span><span class="sch-load"><span class="sch-name">Benefits</span><span class="sch-desc">Pension, health, annuity and plan-change notices</span></span><span class="sch-state"><span class="dot"></span>LIVE</span></a><a class="sch-row is-live" href="news.html" style="--d:180ms"><span class="sch-num">09</span><span class="sch-load"><span class="sch-name">News</span><span class="sch-desc">Correspondence and leadership updates from the hall</span></span><span class="sch-state"><span class="dot"></span>LIVE</span></a><a class="sch-row" href="stewards.html" style="--d:225ms"><span class="sch-num">11</span><span class="sch-load"><span class="sch-name">Steward guide</span><span class="sch-desc">Contract rights, first-day checks and safety help</span></span><span class="sch-state"><span class="dot"></span>REF</span></a></div>
-    </section>
-
-    <section class="panel" aria-labelledby="discord-heading">
-      <h2 id="discord-heading">What is on Discord</h2>
-      <p style="margin:0;color:var(--muted)">
-        Job calls post to <strong>#job-alerts</strong>, current courses stay in
-        <strong>#training</strong>, and meeting and holiday notices post to
-        <strong>#calendar-reminders</strong>. It is a place members can talk to
-        each other too, which a one-way bot is not. Free, works on your phone
-        or in a browser, no app required.
-      </p>
-    </section>
-
-    <section class="panel" aria-labelledby="join-heading">
-      <h2 id="join-heading">How to join on Telegram</h2>
-      <ol>
-        <li>
-          <div>
-            <strong>Install Telegram if you need it.</strong>
-            <span class="store-links">
-              <a href="https://apps.apple.com/app/telegram-messenger/id686449807" rel="noopener noreferrer">iPhone / iPad</a>
-              <a href="https://play.google.com/store/apps/details?id=org.telegram.messenger" rel="noopener noreferrer">Android</a>
-            </span>
-          </div>
-        </li>
-        <li>
-          <div>
-            <strong>Tap “Open IbewjobsBot” above.</strong>
-            <span>Telegram will open the shared public bot. No personal invitation is needed.</span>
-          </div>
-        </li>
-        <li>
-          <div>
-            <strong>Press Start in Telegram.</strong>
-            <span>The bot confirms when notifications are turned on.</span>
-          </div>
-        </li>
-      </ol>
-    </section>
-
-    <section class="panel" aria-labelledby="control-heading">
-      <h2 id="control-heading">You stay in control</h2>
-      <div class="controls">
-        <div class="control">
-          <code>/status</code>
-          <p>Check whether your alerts are on.</p>
-        </div>
-        <div class="control">
-          <code>/stop</code>
-          <p>Turn alerts off immediately.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="panel fine-print" aria-labelledby="privacy-heading">
-      <h2 id="privacy-heading">Simple and private</h2>
-      <p>
-        You never share your Working Systems login. The service keeps only
-        where to send your alerts &mdash; a Discord channel or a Telegram
-        chat &mdash; along with subscription state and the delivery records
-        needed to send and troubleshoot them.
-      </p>
-      <p>
-        This service sends convenience notifications only. It does not submit
-        bids, change your union account, guarantee delivery, or replace the
-        official job board and union office as the authoritative source.
-      </p>
+      <div class="schedule"><div class="sch-head"><span class="h-num">CKT</span><span>LOAD</span><span class="h-state">STATUS</span></div><a class="sch-row is-live" href="jobs.html" style="--d:0ms"><span class="sch-num">01</span><span class="sch-load"><span class="sch-name">Job calls</span><span class="sch-desc">The day&#x27;s open calls, pushed to Discord or Telegram</span></span><span class="sch-state"><span class="dot"></span>LIVE</span></a><a class="sch-row is-live" href="calendar.html" style="--d:45ms"><span class="sch-num">03</span><span class="sch-load"><span class="sch-name">Calendar</span><span class="sch-desc">Meetings, holidays and hall events — subscribe once</span></span><span class="sch-state"><span class="dot"></span>LIVE</span></a><a class="sch-row is-live" href="training.html" style="--d:90ms"><span class="sch-num">05</span><span class="sch-load"><span class="sch-name">Training</span><span class="sch-desc">Courses and reimbursements from the latest bulletin</span></span><span class="sch-state"><span class="dot"></span>LIVE</span></a><a class="sch-row is-live" href="benefits.html" style="--d:135ms"><span class="sch-num">07</span><span class="sch-load"><span class="sch-name">Benefits</span><span class="sch-desc">Pension, health, annuity and plan-change notices</span></span><span class="sch-state"><span class="dot"></span>LIVE</span></a><a class="sch-row is-live" href="news.html" style="--d:180ms"><span class="sch-num">09</span><span class="sch-load"><span class="sch-name">News</span><span class="sch-desc">Correspondence and leadership updates from the hall</span></span><span class="sch-state"><span class="dot"></span>LIVE</span></a><a class="sch-row" href="stewards.html" style="--d:225ms"><span class="sch-num">11</span><span class="sch-load"><span class="sch-name">Steward guide</span><span class="sch-desc">Contract rights, first-day checks and safety help</span></span><span class="sch-state"><span class="dot"></span>REF</span></a></div>
     </section>
 
     <footer>No ads. No tracking scripts. Unsubscribe anytime with /stop.<br>
