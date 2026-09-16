@@ -164,6 +164,34 @@ to{opacity:1;transform:none}}
 .schedule .sch-row{animation:throwrow 260ms cubic-bezier(.2,0,.1,1) both;
 animation-delay:var(--d,0ms)}
 }
+/* The one-line diagram, drawn above the schedule inside the same frame. */
+.oneline{display:block;width:100%;height:auto;padding:10px 12px 2px;
+background:var(--panel);border-bottom:1px solid var(--line)}
+.oneline line,.oneline rect,.oneline circle,.oneline path{
+fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round;
+stroke-linejoin:round}
+.oneline .ol-wave{stroke-width:1.6}
+.oneline .ol-slash{stroke-width:2}
+.oneline .ol-drop rect{fill:var(--bg)}
+.oneline text{fill:var(--muted);stroke:none;font-size:19px;font-weight:700;
+font-variant-numeric:tabular-nums;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+/* Energised copper is the RESTING state of every conductor, and the animation
+   runs from un-energised ink TO it. That ordering is deliberate and is the
+   same lesson the bus bar taught: an animation whose resting state is the
+   invisible end leaves the page looking broken in a thumbnail, on a slow first
+   paint, and anywhere animations do not run. Here the worst case is a diagram
+   drawn entirely in ink, which is simply a de-energised one-line -- correct,
+   legible, and not a defect. */
+.oneline .ol-bus{stroke:var(--copper);stroke-width:6}
+.oneline .ol-drop line{stroke:var(--copper);stroke-width:3}
+@keyframes energise{from{stroke:var(--ink)}to{stroke:var(--copper)}}
+@media (prefers-reduced-motion:no-preference){
+.oneline .ol-bus{animation:energise 420ms steps(2,end) backwards;
+animation-delay:260ms}
+.oneline .ol-drop line{animation:energise 240ms steps(2,end) backwards;
+animation-delay:var(--d,0ms)}
+}
 
 [hidden]{display:none!important}
 h1{letter-spacing:-.01em}
